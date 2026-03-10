@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonk Games — Hit Play. Have Fun.</title>
+  <meta name="description" content="Bonk Games er et indie-spillstudio fra Oslo. Morsomme, trygge mobilspill for barn og familier.">
+  <meta property="og:title" content="Bonk Games — Hit Play. Have Fun.">
+  <meta property="og:description" content="Indie spillstudio fra Norge. Morsomme, trygge mobilspill for barn.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bonkgames.no">
+  <meta property="og:image" content="branding/png-exports/playstore-feature-1024x500.png">
+  <link rel="icon" type="image/svg+xml" href="branding/bonk-icon.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Nunito:wght@700;800;900&display=swap');
+
+    :root {
+      --red: #FF4757;
+      --yellow: #FECA57;
+      --light-red: #FF6B81;
+      --dark: #2D3436;
+      --bg-dark: #1a1a2e;
+      --bg-card: rgba(255,255,255,0.04);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 40px 20px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(255,71,87,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(254,202,87,0.1) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .logo {
+      position: relative;
+      z-index: 1;
+      max-width: 400px;
+      width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .tagline {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: #888;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+    }
+
+    /* Game Card Section */
+    .games-section {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      padding: 0 20px;
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .game-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      transition: border-color 0.3s;
+    }
+
+    .game-card:hover {
+      border-color: rgba(255,71,87,0.3);
+    }
+
+    .game-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #FFF5E6, #FFE0B2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      flex-shrink: 0;
+    }
+
+    .game-info {
+      text-align: left;
+      flex: 1;
+    }
+
+    .game-info h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .game-info .subtitle {
+      font-size: 14px;
+      color: var(--yellow);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .game-info p {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .game-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .badge.highlight {
+      background: rgba(255,71,87,0.15);
+      border-color: rgba(255,71,87,0.3);
+      color: var(--light-red);
+    }
+
+    /* Coming Soon badge */
+    .status-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 50px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    /* Features grid */
+    .features {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      padding: 0 20px;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-item {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .feature-item .icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .feature-item h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    /* Studio section */
+    .studio-section {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      padding: 0 20px;
+      margin-bottom: 50px;
+    }
+
+    .studio-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .studio-section p {
+      font-size: 15px;
+      color: #777;
+      line-height: 1.7;
+    }
+
+    /* Socials */
+    .socials {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .socials a {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: color 0.3s, border-color 0.3s;
+      padding: 8px 16px;
+      border: 1px solid #333;
+      border-radius: 8px;
+    }
+
+    .socials a:hover {
+      color: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #444;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #888;
+    }
+
+    footer .links {
+      margin-top: 8px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .game-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 24px;
+      }
+      .game-info { text-align: center; }
+      .game-badges { justify-content: center; }
+      .socials { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="branding/bonk-games-logo.svg" alt="Bonk Games" class="logo">
+    <p class="tagline">Hit play. Have fun.</p>
+
+    <!-- Game: LearningKidz -->
+    <div class="games-section">
+      <p class="section-label">Kommende spill</p>
+
+      <div class="game-card">
+        <div class="game-icon">A</div>
+        <div class="game-info">
+          <h3>LearningKidz: Spill &amp; L&aelig;r</h3>
+          <div class="subtitle">20 l&aelig;ringsspill for barn 4&ndash;8 &aring;r</div>
+          <p>
+            Bokstaver, tall, former, ord og hukommelse &mdash; alt gjennom lek.
+            5 fargerike verdener, 6 spr&aring;k, ingen reklame, ingen sporing.
+            Trygt og morsomt.
+          </p>
+          <div class="game-badges">
+            <span class="badge highlight">Kommer snart</span>
+            <span class="badge">Android</span>
+            <span class="badge">iOS</span>
+            <span class="badge">4&ndash;8 &aring;r</span>
+            <span class="badge">6 spr&aring;k</span>
+            <span class="badge">Ingen reklame</span>
+            <span class="badge">COPPA-trygg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="icon">&#x1F512;</div>
+          <h4>Trygt for barn</h4>
+          <p>Ingen reklame, ingen sporing, ingen sosiale medier. COPPA &amp; GDPR.</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">&#x1F30D;</div>
+          <h4>6 spr&aring;k</h4>
+          <p>Norsk, engelsk, tysk, svensk, dansk og spansk.</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">&#x2708;&#xFE0F;</div>
+          <h4>Fungerer offline</h4>
+          <p>Ingen internett n&oslash;dvendig. Perfekt p&aring; reise.</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">&#x2B50;</div>
+          <h4>Stjerner &amp; fremgang</h4>
+          <p>Opptil 3 stjerner per spill. Barn motiveres til &aring; pr&oslash;ve igjen.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Studio -->
+    <div class="studio-section">
+      <h2>Om Bonk Games</h2>
+      <p>
+        Vi er et lite indie-studio fra Oslo som lager morsomme, trygge mobilspill for barn og familier.
+        V&aring;rt m&aring;l er enkelt: lag spill som foreldre stoler p&aring; og barn elsker.
+      </p>
+    </div>
+
+    <!-- Socials -->
+    <div class="socials">
+      <a href="https://instagram.com/bonkgames" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://x.com/bonkgames" target="_blank" rel="noopener">X / Twitter</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Bonk Games &mdash; Adea IT AS (Org.nr: 922 689 148). Oslo, Norway.</p>
+    <div class="links">
+      <a href="https://nevzat86.github.io/learningkidz-privacy/">Personvern</a>
+      <a href="mailto:bonkgamesdev@gmail.com">Kontakt</a>
+    </div>
+  </footer>
+
+</body>
+</html>
