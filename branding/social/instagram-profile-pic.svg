@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4757"/>
+      <stop offset="100%" style="stop-color:#FF6B81"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#1a1a1a" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <circle cx="200" cy="200" r="200" fill="url(#bg)"/>
+  <text x="200" y="270" font-family="'Arial Black', Impact, sans-serif" font-size="220" font-weight="900" fill="#FFFFFF" stroke="#2D3436" stroke-width="5" text-anchor="middle" filter="url(#shadow)">B</text>
+  <g transform="translate(310, 80)">
+    <polygon points="0,-30 6,-10 28,-18 12,-2 30,8 10,8 8,30 0,14 -8,30 -10,8 -30,8 -12,-2 -28,-18 -6,-10" fill="#FECA57" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="0" cy="0" r="8" fill="#FFFFFF"/>
+  </g>
+  <line x1="70" y1="140" x2="45" y2="125" stroke="#FECA57" stroke-width="5" stroke-linecap="round"/>
+  <line x1="60" y1="175" x2="30" y2="175" stroke="#FECA57" stroke-width="4" stroke-linecap="round"/>
+  <line x1="70" y1="210" x2="40" y2="220" stroke="#FECA57" stroke-width="3" stroke-linecap="round"/>
+</svg>

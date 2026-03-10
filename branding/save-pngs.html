@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #1a1a2e; color: #fff; }
+    a { display: block; margin: 8px 0; color: #FECA57; }
+    h1 { color: #FF4757; }
+    p { color: #888; }
+  </style>
+</head>
+<body>
+  <h1>Bonk Games — PNG Exports</h1>
+  <p>Hoyre-klikk og velg "Lagre bilde som..." for a laste ned, eller klikk lenkene.</p>
+  <div id="links"></div>
+  <script>
+    async function exportSvgToPng(svgUrl, width, height) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/png'));
+        };
+        img.src = svgUrl;
+      });
+    }
+
+    async function run() {
+      const exports = [
+        { src: 'bonk-icon.svg', w: 512, h: 512, name: 'bonk-icon-512x512.png' },
+        { src: 'bonk-icon.svg', w: 192, h: 192, name: 'bonk-icon-192x192.png' },
+        { src: 'bonk-icon.svg', w: 96, h: 96, name: 'bonk-icon-96x96.png' },
+        { src: 'bonk-icon.svg', w: 48, h: 48, name: 'bonk-icon-48x48.png' },
+        { src: 'bonk-icon.svg', w: 32, h: 32, name: 'bonk-icon-32x32.png' },
+        { src: 'bonk-games-logo.svg', w: 600, h: 200, name: 'bonk-games-logo.png' },
+        { src: 'social/instagram-profile-pic.svg', w: 400, h: 400, name: 'instagram-profile-400x400.png' },
+        { src: 'social/x-banner.svg', w: 1500, h: 500, name: 'x-banner-1500x500.png' },
+        { src: 'social/youtube-banner.svg', w: 2560, h: 1440, name: 'youtube-banner-2560x1440.png' },
+        { src: 'playstore/feature-graphic.svg', w: 1024, h: 500, name: 'playstore-feature-1024x500.png' },
+      ];
+
+      const container = document.getElementById('links');
+
+      for (const exp of exports) {
+        const dataUrl = await exportSvgToPng(exp.src, exp.w, exp.h);
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = exp.name;
+        a.textContent = exp.name + ' (' + exp.w + 'x' + exp.h + ')';
+        container.appendChild(a);
+      }
+
+      container.insertAdjacentHTML('beforeend', '<p style="color:#4CAF50; margin-top:20px;">Klikk pa en lenke for a laste ned PNG-filen.</p>');
+    }
+
+    run();
+  </script>
+</body>
+</html>

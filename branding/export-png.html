@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin: 0; padding: 0; background: transparent; }
+    img { display: block; }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    async function exportSvgToPng(svgUrl, width, height) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/png'));
+        };
+        img.src = svgUrl;
+      });
+    }
+
+    async function exportAll() {
+      const exports = [
+        { src: 'bonk-icon.svg', w: 512, h: 512, name: 'bonk-icon-512x512' },
+        { src: 'bonk-icon.svg', w: 192, h: 192, name: 'bonk-icon-192x192' },
+        { src: 'bonk-icon.svg', w: 96, h: 96, name: 'bonk-icon-96x96' },
+        { src: 'bonk-icon.svg', w: 48, h: 48, name: 'bonk-icon-48x48' },
+        { src: 'bonk-icon.svg', w: 32, h: 32, name: 'bonk-icon-32x32' },
+        { src: 'bonk-games-logo.svg', w: 600, h: 200, name: 'bonk-games-logo' },
+        { src: 'social/instagram-profile-pic.svg', w: 400, h: 400, name: 'instagram-profile-400x400' },
+        { src: 'social/x-banner.svg', w: 1500, h: 500, name: 'x-banner-1500x500' },
+        { src: 'playstore/feature-graphic.svg', w: 1024, h: 500, name: 'playstore-feature-1024x500' },
+      ];
+
+      const results = {};
+      for (const exp of exports) {
+        const dataUrl = await exportSvgToPng(exp.src, exp.w, exp.h);
+        results[exp.name] = dataUrl;
+      }
+      window.__exportResults = results;
+      document.getElementById('container').textContent = 'Export complete: ' + Object.keys(results).length + ' files';
+    }
+
+    exportAll();
+  </script>
+</body>
+</html>
