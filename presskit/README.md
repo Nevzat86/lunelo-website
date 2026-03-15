@@ -9,7 +9,7 @@
 | **Lokasjon** | Oslo, Norge |
 | **Grunnlagt** | 2026 |
 | **Nettside** | [lunelo.no](https://lunelo.no) |
-| **E-post** | hei@lunelo.no |
+| **E-post** | contact@lunelo.no |
 | **Instagram** | [@lunelo.no](https://instagram.com/lunelo.no) |
 
 ### Om oss
@@ -80,7 +80,7 @@ presskit/
 
 For anmeldelseskoder, intervjuer eller presseforesporsler:
 
-**E-post:** hei@lunelo.no
+**E-post:** contact@lunelo.no
 **Emne-prefix:** [PRESSE]
 
 Vi svarer vanligvis innen 24 timer.

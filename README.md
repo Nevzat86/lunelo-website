@@ -5,10 +5,10 @@
 - **Legal Entity:** Adea IT AS (Org.nr: 922 689 148)
 - **Address:** Oslo, Norge
 - **Tagline:** Hit play. Have fun.
-- **Email:** hei@lunelo.no
+- **Email:** contact@lunelo.no
 
 ## Accounts
-- [x] Gmail: hei@lunelo.no
+- [x] Gmail: contact@lunelo.no
 - [x] Google Business Profile (Adea IT AS)
 - [x] Instagram: @lunelo.no
 - [x] Domain: lunelo.no (Domeneshop)
