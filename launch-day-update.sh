@@ -1,6 +1,6 @@
 #!/bin/bash
 # LearningKidz Launch Day — lunelo.no update script
-# Usage: bash launch-day-update.sh "https://play.google.com/store/apps/details?id=com.adeait.learningkidz"
+# Usage: bash launch-day-update.sh "https://play.google.com/store/apps/details?id=no.lunelo.app"
 #
 # This script updates lunelo.no to switch from "Kommer snart" to "Ute nå!"
 # and inserts the actual Google Play store link.

@@ -4,13 +4,13 @@ Nar Google Play godkjenner appen, kjor disse stegene:
 
 ## 1. Hent Play Store URL
 - Apne Google Play Console → Lunelo → Store listing
-- URL-format: `https://play.google.com/store/apps/details?id=com.adeait.learningkidz`
+- URL-format: `https://play.google.com/store/apps/details?id=no.lunelo.app`
 - [ ] Verifiser at appen er synlig i Play Store (privat nettleserfane)
 
 ## 2. Oppdater nettsiden
 ```bash
 cd C:\Users\Tex\Projects\12-bonk-games
-bash launch-day-update.sh "https://play.google.com/store/apps/details?id=com.adeait.learningkidz"
+bash launch-day-update.sh "https://play.google.com/store/apps/details?id=no.lunelo.app"
 ```
 
 Dette endrer:
