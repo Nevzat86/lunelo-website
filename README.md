@@ -7,22 +7,23 @@
 - **Tagline:** Hit play. Have fun.
 - **Email:** bonkgamesdev@gmail.com
 
-## Accounts (Updated 5. mars 2026)
+## Accounts
 - [x] Gmail: bonkgamesdev@gmail.com
-- [x] Google Business Profile (Adea IT AS) — venter verifisering
+- [x] Google Business Profile (Adea IT AS)
 - [x] Instagram: @bonkgames
-- [x] X / Twitter: @bonkgames
 - [x] Domain: bonkgames.no (Domeneshop, 99 kr/yr)
-- [x] D-U-N-S nummer sokt — venter pa e-post fra Dun & Bradstreet
-- [ ] Google Play Console — BLOKKERT: venter D-U-N-S + payments profile
+- [x] D-U-N-S: 346854801 (verifisert)
+- [x] Google Play Console: verifisert, developer ID 7081837294316555512
 - [ ] TikTok: @bonkgamesofficial (bonkgames tatt)
 
-## Next Steps
-1. **Venter D-U-N-S nummer** (e-post fra Dun & Bradstreet, 1-5 dager)
-2. Fullfore Google Play Console registrering med D-U-N-S
-3. Betale $25 registreringsgebyr
-4. Laste opp logo som utviklerikon
-5. Deploy landingsside til bonkgames.no via GitHub Pages
+## Current Status
+- **LearningKidz v1.1.0** sendt til Google Play produksjonsgjennomgang (2026-03-14)
+- 176 land, 3 IAP-produkter aktive (monthly, yearly, lifetime)
+- Venter Google-godkjenning — kjor `launch-day-update.sh` nar URL er klar
+- **Lunelo rebrand** planlagt (domener sikret: lunelo.no, lunelo.online, lunelo.eu)
+
+## Launch Day
+Se [LAUNCH_DAY.md](LAUNCH_DAY.md) for steg-for-steg sjekkliste.
 
 ## Brand
 - **Colors:**
@@ -34,30 +35,10 @@
 - **Font style:** Bold, rounded impact (Lilita One / Bungee)
 - **Tagline:** Hit play. Have fun.
 
-## Project Structure
-```
-bonk-games/
-├── README.md
-├── branding/
-│   ├── bonk-games-logo.svg           (full logo)
-│   ├── bonk-icon.svg                 (app icon)
-│   ├── preview.html                  (brand preview page)
-│   ├── save-pngs.html               (PNG download page)
-│   ├── copy-text.md                  (all text/bio content ready to paste)
-│   ├── social/
-│   │   ├── instagram-profile-pic.svg (400x400)
-│   │   ├── x-banner.svg             (1500x500)
-│   │   └── youtube-banner.svg        (2560x1440)
-│   ├── playstore/
-│   │   └── feature-graphic.svg       (1024x500)
-│   └── png-exports/
-│       ├── bonk-profile-400x400.png
-│       ├── x-banner-1500x500.png
-│       ├── bonk-icon-512x512.png
-│       └── playstore-feature-1024x500.png
-└── website/
-    └── index.html                    (landing page for bonkgames.no)
-```
+## Tech
+- Static HTML/CSS/JS hosted on GitHub Pages
+- Auto-deploy via `.github/workflows/pages.yml` on push to `master`
+- Dev server: `python -m http.server 3456`
 
 ## Full documentation
-See Obsidian: Projects/Bonk Games.md
+See Obsidian: Projects/Bonk Games
