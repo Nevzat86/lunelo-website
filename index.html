@@ -557,9 +557,9 @@
       </div>
       <form id="signup" class="email-form-wrapper" action="https://formspree.io/contact@lunelo.no" method="POST">
         <input type="email" name="email" class="email-input" placeholder="Din beste e-postadresse" required>
-        <button type="submit" class="cta-btn">Sikre livstidstilgang &mdash; 49 kr</button>
+        <button type="submit" class="cta-btn">Sett meg p&aring; VIP-listen</button>
       </form>
-      <p style="font-size:13px;color:var(--text-light);margin-top:10px;font-weight:600;">Vi hater spam like mye som deg. Kun &eacute;n e-post ved lansering. Spar 100 kr!</p>
+      <p style="font-size:13px;color:var(--text-light);margin-top:10px;font-weight:600;">F&aring; lanseringstilbudet p&aring; 49 kr (normalpris 149 kr) rett i innboksen. Kun &eacute;n e-post.</p>
     </div>
   </section>
 
@@ -598,11 +598,11 @@
       <h2 class="section-title fade-in">Slik ser det ut inni Lunelo</h2>
     </div>
     <div class="screenshots-scroll fade-in">
-      <div class="screenshot-frame"><img src="screenshots/store-01-welcome.png" alt="Lunelo velkomstskjerm" loading="lazy"></div>
-      <div class="screenshot-frame"><img src="screenshots/store-02-worldmap.png" alt="Verdenskart med 5 verdener" loading="lazy"></div>
-      <div class="screenshot-frame"><img src="screenshots/store-06-gameplay-letters.png" alt="Bokstavspill i Bokstavland" loading="lazy"></div>
-      <div class="screenshot-frame"><img src="screenshots/store-07-gameplay-math.png" alt="Mattespill i Tallriket" loading="lazy"></div>
-      <div class="screenshot-frame"><img src="screenshots/store-11-memory.png" alt="Hukommelsesspill" loading="lazy"></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-01-welcome.webp" type="image/webp"><img src="screenshots/store-01-welcome.png" alt="Lunelo velkomstskjerm" loading="lazy"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-02-worldmap.webp" type="image/webp"><img src="screenshots/store-02-worldmap.png" alt="Verdenskart med 5 verdener" loading="lazy"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-06-gameplay-letters.webp" type="image/webp"><img src="screenshots/store-06-gameplay-letters.png" alt="Bokstavspill i Bokstavland" loading="lazy"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-07-gameplay-math.webp" type="image/webp"><img src="screenshots/store-07-gameplay-math.png" alt="Mattespill i Tallriket" loading="lazy"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-11-memory.webp" type="image/webp"><img src="screenshots/store-11-memory.png" alt="Hukommelsesspill" loading="lazy"></picture></div>
     </div>
   </section>
 
@@ -831,7 +831,7 @@
       <p class="section-label fade-in">Om oss</p>
       <h2 class="section-title fade-in">Hvem er Lunelo?</h2>
       <p class="about-text fade-in">
-        Lunelo er et lite studio i Oslo som lager trygge l&aelig;ringsspill for barn &mdash; uten reklame og uten sporing. Vi tror barn l&aelig;rer best n&aring;r de har det g&oslash;y.
+        Lunelo ble skapt av et lite team i Oslo som &oslash;nsket tryggere, reklamefrie alternativer for sine egne (og andres) barn. Vi tror barn l&aelig;rer best n&aring;r de har det g&oslash;y &mdash; og at foreldre fortjener &aring; slippe bekymringen.
       </p>
       <a href="mailto:contact@lunelo.no" class="contact-link fade-in">
         &#x2709;&#xFE0F; contact@lunelo.no
@@ -878,6 +878,35 @@
       });
     }, { threshold: 0.5 });
     document.querySelectorAll('.trust-bar').forEach(function(el) { trustObs.observe(el); });
+
+    /* === AJAX form submit === */
+    var signupForm = document.getElementById('signup');
+    if (signupForm) {
+      signupForm.addEventListener('submit', function(ev) {
+        ev.preventDefault();
+        var btn = signupForm.querySelector('.cta-btn');
+        var origText = btn.textContent;
+        btn.textContent = 'Sender...';
+        btn.disabled = true;
+        fetch(signupForm.action, {
+          method: 'POST',
+          body: new FormData(signupForm),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(res) {
+          if (res.ok) {
+            signupForm.innerHTML = '<p style="font-size:18px;font-weight:800;color:var(--green);">&#x2728; Jippi! Tilbudet er p\u00e5 vei til innboksen din!</p>';
+          } else {
+            btn.textContent = origText;
+            btn.disabled = false;
+            alert('Noe gikk galt. Pr\u00f8v igjen!');
+          }
+        }).catch(function() {
+          btn.textContent = origText;
+          btn.disabled = false;
+          alert('Noe gikk galt. Pr\u00f8v igjen!');
+        });
+      });
+    }
 
     /* === Footer stars === */
     var starsEl = document.getElementById('stars');
