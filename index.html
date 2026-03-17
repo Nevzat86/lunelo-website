@@ -3,1276 +3,496 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lunelo &mdash; Trygg l&aelig;ring gjennom lek</title>
-  <meta name="description" content="Lunelo er et indie-spillstudio fra Oslo. Morsomme, trygge mobilspill for barn og familier. Vi bygger ogs&aring; nettsider, apper og nettbutikker.">
-  <meta property="og:title" content="Lunelo &mdash; Trygg l&aelig;ring gjennom lek">
-  <meta property="og:description" content="Indie spillstudio fra Norge. Morsomme, trygge mobilspill for barn.">
+  <title>Lunelo &mdash; Trygge l&aelig;ringsspill for barn 4&ndash;8 &aring;r</title>
+  <meta name="description" content="Lunelo: 30 morsomme l&aelig;ringsspill for barn 4&ndash;8 &aring;r. Bokstaver, tall, former og ord &mdash; uten reklame og uten sporing. 7 spr&aring;k. COPPA-trygg.">
+  <meta property="og:title" content="Lunelo &mdash; Trygge l&aelig;ringsspill for barn 4&ndash;8 &aring;r">
+  <meta property="og:description" content="30 l&aelig;ringsspill for barn 4&ndash;8 &aring;r. Bokstaver, tall, former og ord &mdash; uten reklame. 7 spr&aring;k.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lunelo.no">
   <meta property="og:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
   <meta property="og:locale" content="nb_NO">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Lunelo &mdash; Trygg l&aelig;ring gjennom lek">
-  <meta name="twitter:description" content="Indie spillstudio fra Norge. Morsomme, trygge mobilspill for barn.">
-  <meta name="twitter:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
-  <link rel="canonical" href="https://lunelo.no">
-  <link rel="icon" type="image/svg+xml" href="branding/bonk-icon.svg">
-  <link rel="preload" href="branding/bonk-games-logo.svg" as="image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap">
+  <link rel="icon" type="image/svg+xml" href="branding/lunelo-icon.svg">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
     :root {
-      --red: #FF4757;
-      --yellow: #FECA57;
-      --light-red: #FF6B81;
-      --bg-dark: #0f0f1a;
-      --bg-section: #141425;
-      --bg-card: rgba(255,255,255,0.03);
-      --border: rgba(255,255,255,0.06);
-      --border-hover: rgba(255,255,255,0.12);
-      --text: #e0e0e0;
-      --text-muted: #aaa;
-      --text-dim: #999;
-      --radius-lg: 24px;
-      --radius-md: 16px;
+      --bg: #FFF5E6;
+      --bg-white: #ffffff;
+      --bg-soft: #FFF9F0;
+      --text: #2D3436;
+      --text-muted: #636E72;
+      --text-light: #B2BEC3;
+      --accent: #FFA94D;
+      --accent-dark: #E8890A;
+      --blue: #4DABF7;
+      --green: #69DB7C;
+      --purple: #DA77F2;
+      --yellow: #FFD43B;
+      --coral: #FF6B6B;
+      --radius: 20px;
       --radius-sm: 12px;
+      --shadow: 0 2px 20px rgba(0,0,0,0.06);
+      --shadow-hover: 0 8px 30px rgba(0,0,0,0.1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg-dark);
+      font-family: 'Nunito', system-ui, sans-serif;
+      background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ============ NAV ============ */
-    .site-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 24px;
-      background: rgba(20,20,40,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      transition: background 0.3s;
-    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
-    .nav-home {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-
-    .nav-logo {
-      height: 28px;
-      filter: drop-shadow(0 1px 4px rgba(255,71,87,0.15));
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;
-      padding: 6px 0;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #fff;
-    }
-
-    .nav-links a.active {
-      border-bottom: 2px solid var(--red);
-    }
-
-    /* Hamburger toggle */
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ---- Utility ---- */
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .section-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 48px;
-      line-height: 1.2;
-    }
-
-    /* ---- Fade-in animation ---- */
     .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
     /* ============ HERO ============ */
     .hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      min-height: 90vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       text-align: center;
+      padding: 60px 24px 80px;
       position: relative;
-      padding: 80px 24px 80px;
+      overflow: hidden;
     }
 
     .hero::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 25% 40%, rgba(255,71,87,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 75% 60%, rgba(254,202,87,0.08) 0%, transparent 70%);
-      animation: heroPulse 10s ease-in-out infinite alternate;
+        radial-gradient(ellipse 50% 40% at 20% 30%, rgba(77,171,247,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 35% at 80% 60%, rgba(255,169,77,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 30% at 50% 80%, rgba(218,119,242,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    @keyframes heroPulse {
-      0% { opacity: 0.7; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.05); }
-    }
-
-    .hero-logo {
-      position: relative;
-      z-index: 1;
-      max-width: 340px;
-      width: 70%;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 4px 40px rgba(255,71,87,0.2));
-    }
-
-    .hero-tagline {
-      position: relative;
-      z-index: 1;
-      font-size: clamp(13px, 2vw, 17px);
-      color: var(--text-muted);
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      font-weight: 500;
-      margin-bottom: 56px;
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 32px;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-dim);
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      animation: bounce 2s ease-in-out infinite;
-    }
-
-    .hero-scroll svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--text-dim);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
-
-    /* ============ GAME SHOWCASE ============ */
-    .game-section {
-      background: var(--bg-section);
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .game-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,71,87,0.3), transparent);
-    }
-
-    .game-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 48px;
-      display: flex;
-      gap: 48px;
-      align-items: center;
-      max-width: 800px;
-      margin: 0 auto;
-      backdrop-filter: blur(10px);
-      transition: border-color 0.4s, box-shadow 0.4s;
-    }
-
-    .game-card:hover {
-      border-color: rgba(255,71,87,0.25);
-      box-shadow: 0 8px 60px rgba(255,71,87,0.08);
-    }
-
-    .game-icon {
-      width: 130px;
-      height: 130px;
+    .hero-icon {
+      position: relative; z-index: 1;
+      width: 120px; height: 120px;
       border-radius: 32px;
-      overflow: hidden;
-      flex-shrink: 0;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 40px rgba(255,169,77,0.2);
+      margin-bottom: 24px;
     }
 
-    .game-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .game-info h3 {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(22px, 3vw, 28px);
+    .hero h1 {
+      position: relative; z-index: 1;
+      font-size: clamp(36px, 6vw, 56px);
       font-weight: 900;
-      margin-bottom: 6px;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
 
-    .game-info .subtitle {
-      font-size: 14px;
-      color: var(--yellow);
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
+    .hero h1 span { color: var(--accent); }
 
-    .game-info p {
-      font-size: 15px;
+    .hero-sub {
+      position: relative; z-index: 1;
+      font-size: clamp(16px, 2.5vw, 20px);
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .game-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 12px;
-      font-weight: 500;
-      color: #aaa;
-      transition: border-color 0.3s;
-    }
-
-    .badge:hover {
-      border-color: var(--border-hover);
-    }
-
-    .badge.highlight {
-      background: rgba(255,71,87,0.12);
-      border-color: rgba(255,71,87,0.25);
-      color: var(--light-red);
       font-weight: 600;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 32px;
     }
 
-    .badge.live {
-      background: rgba(72,199,142,0.15);
-      border-color: rgba(72,199,142,0.35);
-      color: #48c78e;
-      font-weight: 700;
+    .hero-badges {
+      position: relative; z-index: 1;
+      display: flex; flex-wrap: wrap;
+      gap: 10px; justify-content: center;
+      margin-bottom: 36px;
     }
 
-    .store-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 16px;
-      padding: 12px 28px;
-      background: linear-gradient(135deg, #48c78e, #3abb81);
-      color: #fff;
-      font-weight: 700;
-      font-size: 14px;
+    .pill {
+      padding: 8px 18px;
+      background: var(--bg-white);
       border-radius: 100px;
-      text-decoration: none;
-      letter-spacing: 0.3px;
-      transition: transform 0.2s, box-shadow 0.3s;
-      box-shadow: 0 4px 20px rgba(72,199,142,0.25);
-    }
-
-    .store-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(72,199,142,0.35);
-    }
-
-    /* ============ PRICING INFO ============ */
-    .pricing-info {
-      margin-top: 16px;
-      padding: 14px 20px;
-      background: rgba(254,202,87,0.06);
-      border: 1px solid rgba(254,202,87,0.15);
-      border-radius: var(--radius-sm);
-      text-align: left;
-    }
-
-    .pricing-info p {
-      font-size: 13px !important;
-      color: var(--text-muted) !important;
-      margin-bottom: 10px !important;
-    }
-
-    .price-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--yellow);
-      margin-right: 6px;
-      margin-bottom: 4px;
-    }
-
-    /* ============ TRY IN BROWSER ============ */
-    .try-section {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .try-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(72,199,142,0.3), transparent);
-    }
-
-    .try-frame-container {
-      max-width: 520px;
-      width: 100%;
-      margin: 0 auto;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.15);
-      box-shadow: 0 8px 60px rgba(0,0,0,0.4);
-      height: 580px;
-      background: #1a1a2e;
-      position: relative;
-    }
-
-    .try-frame-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      position: relative;
-      z-index: 1;
-    }
-
-    .try-loading {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 14px;
-      gap: 10px;
-    }
-
-    .try-loading::after {
-      content: '';
-      width: 24px;
-      height: 24px;
-      border: 3px solid var(--border);
-      border-top-color: var(--yellow);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .try-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      color: var(--text-muted);
-      font-size: 14px;
-      gap: 12px;
-      padding: 24px;
-      text-align: center;
-    }
-
-    .try-placeholder .icon {
-      font-size: 48px;
-    }
-
-    .try-games-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      max-width: 400px;
-      margin: 24px auto 0;
-    }
-
-    .try-game-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      padding: 20px 12px;
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 700;
       color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: border-color 0.3s, transform 0.3s, background 0.3s;
-      cursor: pointer;
-      min-height: 44px;
+      box-shadow: var(--shadow);
     }
 
-    .try-game-btn:hover {
-      border-color: rgba(72,199,142,0.4);
-      transform: translateY(-2px);
-    }
-
-    .try-game-btn.active {
-      border-color: #48c78e;
-      background: rgba(72,199,142,0.1);
-      color: #48c78e;
-    }
-
-    .try-game-btn .game-emoji {
-      font-size: 32px;
-    }
-
-    .try-note {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-
-    /* ============ TRUST STATS ============ */
-    .trust-stats {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0;
-      margin-top: 48px;
-      padding: 24px 32px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
-      gap: 4px;
-    }
-
-    .stat-value {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 900;
+    .pill.accent {
+      background: var(--accent);
       color: #fff;
     }
 
-    .stat-label {
-      font-size: 12px;
+    .cta-btn {
+      position: relative; z-index: 1;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px; font-weight: 800;
+      border: none; border-radius: 100px;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,169,77,0.3);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,169,77,0.4);
+    }
+
+    /* ============ TRUST BAR ============ */
+    .trust-bar {
+      display: flex; justify-content: center; align-items: center;
+      gap: 0; padding: 20px 0;
+      max-width: 500px; margin: 0 auto;
+    }
+
+    .trust-item {
+      flex: 1; text-align: center;
+    }
+
+    .trust-num {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 900;
+      color: var(--accent-dark);
+    }
+
+    .trust-label {
+      font-size: 13px; font-weight: 700;
       color: var(--text-muted);
-      font-weight: 500;
-      letter-spacing: 0.5px;
     }
 
-    .stat-divider {
-      width: 1px;
-      height: 36px;
-      background: var(--border);
+    .trust-div {
+      width: 1px; height: 36px;
+      background: rgba(0,0,0,0.1);
     }
 
-    /* ============ LEARNING SECTION ============ */
-    .learning-section {
-      padding: 100px 0;
-      position: relative;
+    /* ============ WORLDS ============ */
+    .worlds {
+      padding: 80px 0;
     }
 
-    .learning-grid {
+    .section-label {
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--text-light);
+      text-align: center; margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900; text-align: center;
+      margin-bottom: 48px; line-height: 1.2;
+    }
+
+    .worlds-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 16px;
     }
 
-    .learning-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 28px 20px;
+    .world-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 28px 16px;
       text-align: center;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 4px solid;
     }
 
-    .learning-card:hover {
-      border-color: rgba(254,202,87,0.3);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    .world-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
     }
 
-    .learning-icon {
-      font-size: 32px;
+    .world-card.w1 { border-color: var(--blue); }
+    .world-card.w2 { border-color: var(--accent); }
+    .world-card.w3 { border-color: var(--green); }
+    .world-card.w4 { border-color: var(--purple); }
+    .world-card.w5 { border-color: var(--yellow); }
+
+    .world-emoji {
+      font-size: 36px;
       display: block;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .learning-card h4 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .world-card h4 {
+      font-size: 15px; font-weight: 800;
+      margin-bottom: 6px;
     }
 
-    .learning-card p {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.6;
+    .world-card p {
+      font-size: 12px; color: var(--text-muted);
+      line-height: 1.5; font-weight: 600;
     }
 
     /* ============ FEATURES ============ */
-    .features-section {
-      padding: 100px 0;
-      position: relative;
+    .features {
+      padding: 80px 0;
+      background: var(--bg-white);
     }
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
-    .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 32px 24px;
-      text-align: center;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    .feat-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex; gap: 20px;
+      align-items: flex-start;
+      transition: transform 0.3s;
     }
 
-    .feature-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    .feat-card:hover { transform: translateY(-4px); }
+
+    .feat-icon {
+      width: 52px; height: 52px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
     }
 
-    .feature-card .icon {
-      font-size: 36px;
-      margin-bottom: 16px;
-      display: block;
+    .feat-icon.safe { background: rgba(105,219,124,0.2); }
+    .feat-icon.lang { background: rgba(77,171,247,0.2); }
+    .feat-icon.offline { background: rgba(218,119,242,0.2); }
+    .feat-icon.stars { background: rgba(255,212,59,0.2); }
+
+    .feat-card h4 {
+      font-size: 16px; font-weight: 800;
+      margin-bottom: 4px;
     }
 
-    .feature-card h4 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
+    .feat-card p {
+      font-size: 14px; color: var(--text-muted);
+      line-height: 1.6; font-weight: 600;
     }
 
     /* ============ ABOUT ============ */
-    .about-section {
-      padding: 100px 0;
+    .about {
+      padding: 80px 0;
       text-align: center;
     }
 
-    .about-content {
-      max-width: 640px;
-      margin: 0 auto;
+    .about-text {
+      max-width: 520px;
+      margin: 0 auto 32px;
+      font-size: 17px; color: var(--text-muted);
+      line-height: 1.8; font-weight: 600;
     }
 
-    .about-content p {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 40px;
-    }
-
-    .socials {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .socials a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      padding: 10px 20px;
-      border: 1px solid rgba(255,255,255,0.1);
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      background: var(--bg-white);
       border-radius: 100px;
-      transition: all 0.3s;
+      font-size: 14px; font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.3s;
     }
 
-    .socials a:hover {
-      color: var(--yellow);
-      border-color: var(--yellow);
-      box-shadow: 0 0 20px rgba(254,202,87,0.1);
+    .contact-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
     }
 
     /* ============ FOOTER ============ */
     footer {
       text-align: center;
-      padding: 40px 24px;
-      color: var(--text-dim);
-      font-size: 13px;
-      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      font-size: 13px; font-weight: 600;
+      color: var(--text-light);
+      border-top: 1px solid rgba(0,0,0,0.06);
     }
 
-    footer p {
-      margin-bottom: 12px;
-    }
+    footer p { margin-bottom: 8px; }
 
     footer .links {
-      display: flex;
-      gap: 24px;
+      display: flex; gap: 20px;
       justify-content: center;
     }
 
     footer a {
-      color: var(--text-dim);
+      color: var(--text-muted);
       text-decoration: none;
       transition: color 0.3s;
     }
 
-    footer a:hover {
-      color: var(--text-muted);
-    }
+    footer a:hover { color: var(--accent-dark); }
 
     /* ============ RESPONSIVE ============ */
-
-    /* --- Wide desktop (1440px+) --- */
-    @media (min-width: 1440px) {
-      .container {
-        max-width: 1200px;
-      }
-      .game-card {
-        max-width: 900px;
-      }
-      .learning-grid {
-        grid-template-columns: repeat(5, 1fr);
-      }
-      .try-frame-container {
-        max-width: 560px;
-        height: 620px;
-      }
+    @media (max-width: 900px) {
+      .worlds-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
-    /* --- Desktop (1024–1439px): defaults above handle this well --- */
-
-    /* --- Tablet landscape / small desktop (max 1024px) --- */
-    @media (max-width: 1024px) {
-      .hero {
-        min-height: 70vh;
-      }
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .game-section,
-      .features-section,
-      .learning-section,
-      .try-section,
-      .about-section {
-        padding: 80px 0;
-      }
-    }
-
-    /* --- Tablet portrait (max 800px) --- */
-    @media (max-width: 800px) {
-      /* Show hamburger on tablets too */
-      .nav-toggle { display: flex; }
-
-      .nav-links {
-        position: fixed;
-        top: 53px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: rgba(20,20,40,0.97);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        padding: 0;
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-links.open {
-        max-height: 300px;
-        padding: 8px 0;
-      }
-
-      .nav-links li {
-        text-align: center;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 14px 24px;
-        font-size: 15px;
-      }
-
-      .nav-links a.active {
-        border-bottom: none;
-        color: var(--red);
-      }
-
-      .hero {
-        min-height: 60vh;
-        padding: 60px 24px 60px;
-      }
-      .game-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 36px 28px;
-        gap: 28px;
-      }
-      .game-info { text-align: center; }
-      .game-badges { justify-content: center; }
-      .learning-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .try-frame-container {
-        max-width: 100%;
-        height: 520px;
-      }
-      .try-games-grid {
-        max-width: 100%;
-      }
-      .game-section,
-      .features-section,
-      .learning-section,
-      .try-section,
-      .about-section {
-        padding: 70px 0;
-      }
-    }
-
-    /* --- Phone (max 640px) --- */
     @media (max-width: 640px) {
-      .hero {
-        min-height: auto;
-        padding: 80px 20px 40px;
-      }
-      .hero-logo {
-        max-width: 260px;
-      }
-      .hero-tagline {
-        letter-spacing: 5px;
-        margin-bottom: 32px;
-      }
-      .hero-scroll {
-        position: relative;
-        bottom: auto;
-        margin-top: 16px;
-      }
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-      .learning-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .learning-card:last-child {
-        grid-column: 1 / -1;
-      }
-      .trust-stats {
-        padding: 20px 16px;
-      }
-      .stat-value {
-        font-size: 22px;
-      }
-      .stat-label {
-        font-size: 11px;
-      }
-      .stat-divider {
-        height: 28px;
-      }
-      .socials {
-        flex-direction: column;
-        align-items: center;
-      }
-      .try-frame-container {
-        height: 500px;
-      }
-      .game-section,
-      .features-section,
-      .learning-section,
-      .try-section,
-      .about-section {
-        padding: 60px 0;
-      }
-    }
-
-    /* --- Small phone (max 380px) --- */
-    @media (max-width: 380px) {
-      .container {
-        padding: 0 16px;
-      }
-      .hero {
-        padding: 70px 16px 32px;
-      }
-      .hero-logo {
-        max-width: 220px;
-      }
-      .game-card {
-        padding: 28px 20px;
-      }
-      .try-frame-container {
-        height: 460px;
-      }
+      .worlds-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 80vh; padding: 40px 20px 60px; }
+      .worlds, .features, .about { padding: 60px 0; }
+      .feat-card { flex-direction: column; text-align: center; align-items: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ======== NAV ======== -->
-  <nav class="site-nav">
-    <a href="#" class="nav-home"><img src="branding/bonk-games-logo.svg" alt="Lunelo" class="nav-logo"></a>
-    <button class="nav-toggle" aria-label="Meny" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#spill">Spill</a></li>
-      <li><a href="#prov">Pr&oslash;v</a></li>
-      <li><a href="#blogg">Blogg</a></li>
-      <li><a href="#om">Om</a></li>
-    </ul>
-  </nav>
-
   <!-- ======== HERO ======== -->
   <section class="hero">
-    <img src="branding/bonk-games-logo.svg" alt="Lunelo" class="hero-logo">
-    <p class="hero-tagline">Trygg l&aelig;ring gjennom lek</p>
-
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
+    <img src="branding/png-exports/lunelo-icon-512x512.png" alt="Lunelo" class="hero-icon">
+    <h1>L&aelig;ring gjennom <span>lek</span></h1>
+    <p class="hero-sub">
+      30 morsomme spill som l&aelig;rer barnet ditt bokstaver, tall, former og ord &mdash; helt uten reklame og sporing.
+    </p>
+    <div class="hero-badges">
+      <span class="pill accent">Kommer snart!</span>
+      <span class="pill">4&ndash;8 &aring;r</span>
+      <span class="pill">7 spr&aring;k</span>
+      <span class="pill">Android</span>
     </div>
+    <a href="mailto:contact@lunelo.no?subject=Varsle%20meg%20n%C3%A5r%20Lunelo%20er%20klar!" class="cta-btn">
+      &#x2709;&#xFE0F; F&aring; beskjed n&aring;r vi lanserer
+    </a>
   </section>
 
-  <!-- ======== GAME SHOWCASE ======== -->
-  <section class="game-section" id="spill">
-    <div class="container">
-      <p class="section-label fade-in">V&aring;re spill</p>
-      <h2 class="section-title fade-in">V&aring;rt f&oslash;rste spill</h2>
-
-      <div class="game-card fade-in">
-        <div class="game-icon">
-          <img src="branding/png-exports/bonk-icon-512x512.png" alt="Lunelo">
-        </div>
-        <div class="game-info">
-          <h3>Lunelo: Spill &amp; L&aelig;r</h3>
-          <div class="subtitle">L&aelig;ringsspill for barn 4&ndash;8 &aring;r</div>
-          <p>
-            Bokstaver, tall, former, ord og hukommelse &mdash; alt gjennom lek.
-            6 gratis spill &middot; 30 totalt med premium &middot; 5 verdener &middot; 7 spr&aring;k.
-            Ingen reklame, ingen sporing.
-          </p>
-          <div class="game-badges">
-            <span class="badge highlight">Under godkjenning</span>
-            <span class="badge">Android</span>
-            <span class="badge">4&ndash;8 &aring;r</span>
-            <span class="badge">7 spr&aring;k</span>
-            <span class="badge">Ingen reklame</span>
-            <span class="badge">COPPA-trygg</span>
-          </div>
-          <span class="store-button" style="background: linear-gradient(135deg, #666, #555); box-shadow: none; cursor: default;">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.834 1.64a1 1 0 0 1 0 1.74l-2.834 1.178-2.535-2.535 2.535-2.022zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
-            Snart p&aring; Google Play
-          </span>
-          <div class="pricing-info">
-            <p>6 spill er helt gratis. L&aring;s opp alle 30 med premium:</p>
-            <span class="price-tag" style="text-decoration: line-through; opacity: 0.6;">149 kr</span>
-            <span class="price-tag" style="background: linear-gradient(135deg, #43a047, #2e7d32); font-weight: bold;">49 kr livstid</span>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="section-title fade-in" style="margin-top: 60px;">For litt eldre spillere</h2>
-
-      <div class="game-card fade-in">
-        <div class="game-icon" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
-          <span style="font-size: 64px;">&#x26D3;</span>
-        </div>
-        <div class="game-info">
-          <h3>Chain Dungeon</h3>
-          <div class="subtitle">Roguelike Deckbuilder</div>
-          <p>
-            Et turn-basert kortspill inspirert av Slay the Spire &mdash; med et unikt Chain-system.
-            Spill kort av samme element i sekvens for eskalerende skademultiplikatorer.
-            100 kort &middot; 30 fiender &middot; 5 elementer &middot; 3 akter.
-          </p>
-          <div class="game-badges">
-            <span class="badge highlight">Alpha</span>
-            <span class="badge">Web</span>
-            <span class="badge">Gratis</span>
-            <span class="badge">Roguelike</span>
-            <span class="badge">Deckbuilder</span>
-          </div>
-          <a href="https://nevzat86.itch.io/chain-dungeon" target="_blank" rel="noopener" class="store-button" style="display: inline-flex; text-decoration: none;">
-            <span style="font-size: 20px; margin-right: 4px;">&#x1F3AE;</span>
-            Spill p&aring; itch.io
-          </a>
-        </div>
-      </div>
-
-      <!-- Trust stats -->
-      <div class="trust-stats fade-in">
-        <div class="stat-item">
-          <span class="stat-value">6</span>
-          <span class="stat-label">Gratis spill</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-value">30</span>
-          <span class="stat-label">Med premium</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-value">0</span>
-          <span class="stat-label">Reklame</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-value">0</span>
-          <span class="stat-label">Sporing</span>
-        </div>
-      </div>
+  <!-- ======== TRUST BAR ======== -->
+  <div class="trust-bar fade-in">
+    <div class="trust-item">
+      <div class="trust-num">6</div>
+      <div class="trust-label">Gratis spill</div>
     </div>
-  </section>
+    <div class="trust-div"></div>
+    <div class="trust-item">
+      <div class="trust-num">30</div>
+      <div class="trust-label">Totalt</div>
+    </div>
+    <div class="trust-div"></div>
+    <div class="trust-item">
+      <div class="trust-num">0</div>
+      <div class="trust-label">Reklame</div>
+    </div>
+    <div class="trust-div"></div>
+    <div class="trust-item">
+      <div class="trust-num">0</div>
+      <div class="trust-label">Sporing</div>
+    </div>
+  </div>
 
-  <!-- ======== WHAT KIDS LEARN ======== -->
-  <section class="learning-section">
+  <!-- ======== 5 WORLDS ======== -->
+  <section class="worlds">
     <div class="container">
       <p class="section-label fade-in">5 verdener &middot; 30 spill</p>
       <h2 class="section-title fade-in">Hva barna l&aelig;rer</h2>
 
-      <div class="learning-grid">
-        <div class="learning-card fade-in">
-          <span class="learning-icon">&#x1F524;</span>
-          <h4>Bokstaver</h4>
-          <p>Gjenkjenne og skrive bokstaver fra A til &Aring;. Bygger lesefundamentet.</p>
+      <div class="worlds-grid">
+        <div class="world-card w1 fade-in">
+          <span class="world-emoji">&#x1F524;</span>
+          <h4>Bokstavland</h4>
+          <p>Gjenkjenne og skrive bokstaver fra A til &Aring;</p>
         </div>
-        <div class="learning-card fade-in">
-          <span class="learning-icon">&#x1F522;</span>
-          <h4>Tall &amp; telling</h4>
-          <p>Telle, sammenligne og kjenne igjen tall. Tidlig matteforst&aring;else.</p>
+        <div class="world-card w2 fade-in">
+          <span class="world-emoji">&#x1F522;</span>
+          <h4>Tallriket</h4>
+          <p>Telle, sammenligne og kjenne igjen tall</p>
         </div>
-        <div class="learning-card fade-in">
-          <span class="learning-icon">&#x1F536;</span>
-          <h4>Former &amp; farger</h4>
-          <p>Sirkler, firkanter, trekanter &mdash; og farger p&aring; norsk og engelsk.</p>
+        <div class="world-card w3 fade-in">
+          <span class="world-emoji">&#x1F536;</span>
+          <h4>Formskogen</h4>
+          <p>Former, farger og m&oslash;nster-gjenkjenning</p>
         </div>
-        <div class="learning-card fade-in">
-          <span class="learning-icon">&#x1F4AC;</span>
-          <h4>Ord &amp; spr&aring;k</h4>
-          <p>Hverdagsord med uttale p&aring; 7 spr&aring;k. Perfekt for flerspr&aring;klige familier.</p>
+        <div class="world-card w4 fade-in">
+          <span class="world-emoji">&#x1F4AC;</span>
+          <h4>Ordslottet</h4>
+          <p>Ord, staving og setningsbygging</p>
         </div>
-        <div class="learning-card fade-in">
-          <span class="learning-icon">&#x1F9E0;</span>
-          <h4>Hukommelse</h4>
-          <p>Memory-spill som trener fokus og konsentrasjon p&aring; en morsom m&aring;te.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== TRY IN BROWSER ======== -->
-  <section class="try-section" id="prov">
-    <div class="container">
-      <p class="section-label fade-in">Pr&oslash;v gratis</p>
-      <h2 class="section-title fade-in">Spill direkte i nettleseren</h2>
-
-      <div class="try-frame-container fade-in">
-        <div class="try-placeholder" id="try-placeholder">
-          <span class="icon">&#x1F3AE;</span>
-          <p>Velg et spill nedenfor for &aring; pr&oslash;ve det rett i nettleseren!</p>
+        <div class="world-card w5 fade-in">
+          <span class="world-emoji">&#x1F9E0;</span>
+          <h4>Hukommelses&oslash;ya</h4>
+          <p>Memory, sekvenser og konsentrasjon</p>
         </div>
       </div>
-
-      <div class="try-games-grid fade-in">
-        <button class="try-game-btn" onclick="loadGame('letter-hunt', this)">
-          <span class="game-emoji">&#x1F50D;</span>
-          Finn bokstaven
-        </button>
-        <button class="try-game-btn" onclick="loadGame('count-animals', this)">
-          <span class="game-emoji">&#x1F43E;</span>
-          Tell dyrene
-        </button>
-        <button class="try-game-btn" onclick="loadGame('memory-cards', this)">
-          <span class="game-emoji">&#x1F0CF;</span>
-          Memory
-        </button>
-      </div>
-
-      <p class="try-note fade-in">
-        Dette er forenkla nettversjoner. Last ned appen for full opplevelse med tale, lyd og alle 30 spill.
-      </p>
     </div>
   </section>
 
   <!-- ======== FEATURES ======== -->
-  <section class="features-section">
+  <section class="features">
     <div class="container">
       <p class="section-label fade-in">Hvorfor Lunelo?</p>
       <h2 class="section-title fade-in">Bygget for foreldre som bryr seg</h2>
 
       <div class="features-grid">
-        <div class="feature-card fade-in">
-          <span class="icon">&#x1F512;</span>
-          <h4>Trygt for barn</h4>
-          <p>Ingen reklame, ingen sporing, ingen sosiale medier. COPPA &amp; GDPR-samsvar.</p>
+        <div class="feat-card fade-in">
+          <div class="feat-icon safe">&#x1F512;</div>
+          <div>
+            <h4>Trygt for barn</h4>
+            <p>Ingen reklame, ingen sporing, ingen sosiale medier. COPPA &amp; GDPR-K samsvar.</p>
+          </div>
         </div>
-        <div class="feature-card fade-in">
-          <span class="icon">&#x1F30D;</span>
-          <h4>7 spr&aring;k + tale</h4>
-          <p>Norsk, engelsk, tysk, svensk, dansk, spansk og albansk &mdash; med innebygd tekst-til-tale.</p>
+        <div class="feat-card fade-in">
+          <div class="feat-icon lang">&#x1F30D;</div>
+          <div>
+            <h4>7 spr&aring;k</h4>
+            <p>Norsk, engelsk, tysk, svensk, dansk, spansk og albansk &mdash; med innebygd tale.</p>
+          </div>
         </div>
-        <div class="feature-card fade-in">
-          <span class="icon">&#x2708;&#xFE0F;</span>
-          <h4>Fungerer offline</h4>
-          <p>Ingen internett n&oslash;dvendig. Perfekt p&aring; reise.</p>
+        <div class="feat-card fade-in">
+          <div class="feat-icon offline">&#x2708;&#xFE0F;</div>
+          <div>
+            <h4>Fungerer offline</h4>
+            <p>Ingen internett n&oslash;dvendig. Perfekt p&aring; bilturer og flyreiser.</p>
+          </div>
         </div>
-        <div class="feature-card fade-in">
-          <span class="icon">&#x2B50;</span>
-          <h4>Stjerner &amp; fremgang</h4>
-          <p>Opptil 3 stjerner per spill. Motiverer barna til &aring; pr&oslash;ve igjen.</p>
+        <div class="feat-card fade-in">
+          <div class="feat-icon stars">&#x2B50;</div>
+          <div>
+            <h4>Stjerner &amp; klistremerker</h4>
+            <p>Opptil 3 stjerner per spill og klistremerker som bel&oslash;nning. Motiverer uten press.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ======== ABOUT ======== -->
-  <section class="about-section" id="om">
+  <section class="about">
     <div class="container">
       <p class="section-label fade-in">Om oss</p>
       <h2 class="section-title fade-in">Hvem er Lunelo?</h2>
-
-      <div class="about-content fade-in">
-        <p>
-          Lunelo er et indie-studio i Oslo. Vi lager trygge, morsomme
-          l&aelig;ringsspill for barn &mdash; uten reklame og uten sporing.
-        </p>
-
-        <div class="socials">
-          <a href="https://instagram.com/lunelo.no" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== BLOG TEASER ======== -->
-  <section class="features-section" id="blogg">
-    <div class="container">
-      <p class="section-label fade-in">Blogg</p>
-      <h2 class="section-title fade-in">L&aelig;ring gjennom lek</h2>
-
-      <div class="features-grid">
-        <a href="/blog/trygge-apper-for-barn.html" class="feature-card fade-in" style="text-decoration:none;color:inherit;cursor:pointer">
-          <span class="icon">&#x1F512;</span>
-          <h4>Trygge apper for barn uten reklame</h4>
-          <p>Hva b&oslash;r foreldre se etter n&aring;r de velger apper? Vi deler v&aring;re beste tips.</p>
-        </a>
-
-        <a href="/blog/bokstaver-gjennom-lek.html" class="feature-card fade-in" style="text-decoration:none;color:inherit;cursor:pointer">
-          <span class="icon">&#x1F524;</span>
-          <h4>Hvordan l&aelig;re bokstaver gjennom lek</h4>
-          <p>Forskning viser at barn l&aelig;rer bokstaver best gjennom lek og repetisjon.</p>
-        </a>
-
-        <a href="/blog/flerspraklig-laering.html" class="feature-card fade-in" style="text-decoration:none;color:inherit;cursor:pointer">
-          <span class="icon">&#x1F30D;</span>
-          <h4>Flerspr&aring;klig l&aelig;ring hjemme</h4>
-          <p>Hvordan st&oslash;tte barn som vokser opp med flere spr&aring;k &mdash; tips for foreldre.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== EMAIL CAPTURE ======== -->
-  <section class="game-section">
-    <div class="container" style="text-align:center">
-      <p class="section-label fade-in">Nyhetsbrev</p>
-      <h2 class="section-title fade-in">F&aring; tips om trygg l&aelig;ring</h2>
-      <p class="fade-in" style="max-width:500px;margin:0 auto 2rem;color:var(--text-muted)">
-        F&aring; ukentlige tips om barns l&aelig;ring, trygge apper og aktiviteter du kan gj&oslash;re hjemme. Ingen spam &mdash; kun nyttig innhold.
+      <p class="about-text fade-in">
+        Lunelo er et lite studio i Oslo som lager trygge l&aelig;ringsspill for barn &mdash; uten reklame og uten sporing. Vi tror barn l&aelig;rer best n&aring;r de har det g&oslash;y.
       </p>
-      <form class="fade-in" action="https://formspree.io/f/xdkojkzq" method="POST" style="display:flex;gap:0.75rem;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center">
-        <input type="email" name="email" placeholder="Din e-postadresse" required
-          style="flex:1;min-width:220px;padding:0.85rem 1.2rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:1rem;font-family:inherit">
-        <button type="submit"
-          style="padding:0.85rem 1.8rem;border-radius:var(--radius-sm);border:none;background:linear-gradient(135deg,var(--red),var(--light-red));color:#fff;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit">
-          Meld meg p&aring;
-        </button>
-      </form>
+      <a href="mailto:contact@lunelo.no" class="contact-link fade-in">
+        &#x2709;&#xFE0F; contact@lunelo.no
+      </a>
     </div>
   </section>
-
 
   <!-- ======== FOOTER ======== -->
   <footer>
-    <p>&copy; 2026 Lunelo &mdash; Adea IT AS (Org.nr: 922 689 148). Oslo, Norway.</p>
+    <p>&copy; 2026 Lunelo &mdash; Adea IT AS (Org.nr: 922 689 148). Oslo, Norge.</p>
     <div class="links">
-      <a href="https://instagram.com/lunelo.no" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://lunelo.no/privacy/">Personvern</a>
       <a href="mailto:contact@lunelo.no">Kontakt</a>
-      <a href="/personvern">Personvern</a>
     </div>
   </footer>
 
-  <!-- ======== SCRIPTS ======== -->
   <script>
-    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-
-    // Nav: scroll-spy (highlight active section)
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksAll = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', function() {
-      let current = '';
-      sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
-      });
-      navLinksAll.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
-    }, { passive: true });
-
-    // Nav: close hamburger when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', function() {
-        document.querySelector('.nav-toggle')?.classList.remove('open');
-        document.querySelector('.nav-links')?.classList.remove('open');
-      });
-    });
-
-    // Try-games
-    const PLACEHOLDER_HTML = document.getElementById('try-placeholder') ? document.getElementById('try-placeholder').parentElement.innerHTML : '';
-
-    function loadGame(game, btn) {
-      const wrapper = document.querySelector('.try-frame-container');
-      if (!wrapper) return;
-      wrapper.innerHTML = '<div class="try-loading">Laster spill</div><iframe src="games/' + game + '.html" title="Pr\u00f8v spillet" allow="autoplay" onload="this.previousElementSibling?.remove()"></iframe>';
-      wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      document.querySelectorAll('.try-game-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-    }
-
-    function restorePlaceholder() {
-      const wrapper = document.querySelector('.try-frame-container');
-      if (!wrapper) return;
-      wrapper.innerHTML = PLACEHOLDER_HTML;
-      document.querySelectorAll('.try-game-btn').forEach(btn => btn.classList.remove('active'));
-      // Scroll back to game selector so user isn't stranded
-      document.querySelector('.try-games-grid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    window.addEventListener('message', function(e) {
-      if (e.data === 'close-game') restorePlaceholder();
-    });
   </script>
 
 </body>
