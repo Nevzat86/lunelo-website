@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trygg skjermtid for barn &mdash; l&aelig;r gjennom lek | Lunelo</title>
+  <meta name="description" content="Gj&oslash;r skjermtiden til l&aelig;ringstid. Lunelo har 30 spill uten reklame, uten sporing og uten sosiale funksjoner. Trygt for barn 4-8 &aring;r.">
+  <meta name="keywords" content="trygg skjermtid barn, skjermtid l&aelig;ring, skjermtid uten reklame, barneapp trygg, kvalitetsskjermtid barn">
+  <meta property="og:title" content="Trygg skjermtid for barn &mdash; l&aelig;r gjennom lek | Lunelo">
+  <meta property="og:description" content="Gj&oslash;r skjermtiden til l&aelig;ringstid. 30 spill uten reklame, uten sporing og uten sosiale funksjoner.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lunelo.no/trygg-skjermtid/">
+  <meta property="og:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:site_name" content="Lunelo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trygg skjermtid for barn &mdash; l&aelig;r gjennom lek | Lunelo">
+  <meta name="twitter:description" content="Gj&oslash;r skjermtiden til l&aelig;ringstid. 30 spill uten reklame, uten sporing og uten sosiale funksjoner.">
+  <meta name="twitter:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
+  <link rel="canonical" href="https://lunelo.no/trygg-skjermtid/">
+  <link rel="alternate" hreflang="no" href="https://lunelo.no/trygg-skjermtid/">
+  <link rel="alternate" hreflang="en" href="https://lunelo.no/screen-time-learning-app/">
+  <link rel="icon" type="image/svg+xml" href="/branding/bonk-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Lunelo",
+    "description": "Trygg skjermtid for barn 4-8 \u00e5r. 30 l\u00e6ringsspill uten reklame, uten sporing og uten sosiale funksjoner.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "NOK"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Lunelo",
+      "url": "https://lunelo.no"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "suggestedMinAge": 4,
+      "suggestedMaxAge": 8
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --red: #FF4757;
+      --yellow: #FECA57;
+      --light-red: #FF6B81;
+      --bg-dark: #0f0f1a;
+      --bg-section: #141425;
+      --bg-card: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --text: #e0e0e0;
+      --text-muted: #aaa;
+      --text-dim: #999;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .blog-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(20,20,40,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .blog-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .blog-nav a:hover {
+      color: #fff;
+    }
+
+    .blog-nav .nav-logo {
+      height: 24px;
+      filter: drop-shadow(0 1px 4px rgba(255,71,87,0.15));
+    }
+
+    /* ARTICLE */
+    .article-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .article-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .article-intro {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 48px;
+      border-left: 3px solid var(--red);
+      padding-left: 20px;
+    }
+
+    .article-body h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 800;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--yellow);
+    }
+
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 16px 0 24px 24px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .article-body li {
+      margin-bottom: 8px;
+    }
+
+    .article-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .article-body a {
+      color: var(--light-red);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .article-body a:hover {
+      color: var(--yellow);
+    }
+
+    .callout {
+      background: rgba(254,202,87,0.06);
+      border: 1px solid rgba(254,202,87,0.15);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .callout strong {
+      color: var(--yellow);
+    }
+
+    .red-flag {
+      background: rgba(255,71,87,0.06);
+      border: 1px solid rgba(255,71,87,0.15);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .red-flag h4 {
+      color: var(--red);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .red-flag ul {
+      margin: 0 0 0 20px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .cta-box {
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .cta-box p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .cta-box a {
+      color: var(--light-red);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .cta-box form {
+      display: flex;
+      gap: 10px;
+      max-width: 420px;
+      margin: 16px auto 0;
+    }
+
+    .cta-box input[type="email"] {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .cta-box input[type="email"]::placeholder {
+      color: var(--text-dim);
+    }
+
+    .cta-box button {
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--red);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .cta-box button:hover {
+      background: var(--light-red);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--text-dim);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--text-muted);
+    }
+
+    footer .links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .article-wrapper {
+        padding: 80px 20px 60px;
+      }
+      .article-intro {
+        font-size: 16px;
+      }
+      .cta-box form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="blog-nav">
+    <a href="/">
+      <img src="/branding/lunelo-logo.svg" alt="Lunelo" class="nav-logo">
+    </a>
+    <a href="/">&larr; Tilbake til forsiden</a>
+  </nav>
+
+  <article class="article-wrapper">
+    <p class="article-meta">Lunelo &middot; L&aelig;ringsapp for barn 4&ndash;8 &aring;r</p>
+    <h1 class="article-title">Trygg skjermtid for barn</h1>
+
+    <p class="article-intro">
+      Sp&oslash;rsm&aring;let er ikke om barnet skal bruke skjerm. Sp&oslash;rsm&aring;let er hva som skjer p&aring; skjermen. Lunelo gj&oslash;r skjermtiden til aktiv l&aelig;ringstid &mdash; med 30 spill uten reklame, uten sporing og uten sosiale funksjoner.
+    </p>
+
+    <div class="article-body">
+
+      <h2>Kvalitet, ikke minutter</h2>
+
+      <p>
+        Forskning fra Universitetet i Oxford viser at det ikke er <em>antall minutter</em> foran skjermen som p&aring;virker barns utvikling mest &mdash; det er <em>hva barnet faktisk gj&oslash;r</em>. Passiv scrolling av videoer er noe helt annet enn &aring; telle dyr, forme bokstaver eller l&oslash;se m&oslash;nstre i en gjennomtenkt l&aelig;ringsapp.
+      </p>
+
+      <p>
+        Likevel ender skjermtidsdebatten ofte i skyldf&oslash;lelse. Lunelo er laget for foreldre som &oslash;nsker &aring; gi barna sine god skjermtid &mdash; den typen som bygger ferdigheter, ikke den som stjeler oppmerksomhet.
+      </p>
+
+      <h2>Hva gj&oslash;r skjermtid trygg?</h2>
+
+      <p>
+        Trygg skjermtid handler om mer enn frav&aelig;r av reklame. Det handler om et helt milj&oslash; som er designet for barnet, ikke for annons&oslash;rer. Her er hva du b&oslash;r se etter:
+      </p>
+
+      <ul>
+        <li><strong>Ingen reklame.</strong> Barn under 6 &aring;r skiller ikke mellom innhold og reklame. Hvert banner er en manipulasjon.</li>
+        <li><strong>Ingen sporing.</strong> Appen skal ikke samle inn data om barnet &mdash; verken lokasjon, bruksm&oslash;nstre eller enhetsinfo.</li>
+        <li><strong>Ingen sosiale funksjoner.</strong> Chat, venneforespørsler og deling har ingenting i en app for fire&aring;ringer &aring; gj&oslash;re.</li>
+        <li><strong>Offline-st&oslash;tte.</strong> Hvis appen fungerer uten nett, trenger den ikke sende data noe sted.</li>
+        <li><strong>Tydelig pedagogisk innhold.</strong> Barnet skal l&aelig;re noe konkret &mdash; bokstaver, tall, former, ord.</li>
+      </ul>
+
+      <h2>Lunelos sikkerhetsløfte</h2>
+
+      <p>
+        Lunelo er bygget fra grunnen av med barns sikkerhet som f&oslash;rsteprioritet. Vi oppfyller b&aring;de <strong>COPPA</strong> (den amerikanske loven for barns personvern) og <strong>GDPR</strong> (EUs personvernforordning). Konkret betyr det:
+      </p>
+
+      <ul>
+        <li>Vi samler <strong>ingen personopplysninger</strong> fra barn</li>
+        <li>Vi bruker <strong>ingen annonsenettverk</strong> eller tredjepartssporing</li>
+        <li>Appen fungerer <strong>helt offline</strong> &mdash; ingen data forlater enheten</li>
+        <li>Vi har <strong>ingen chat</strong>, ingen venneforespørsler, ingen sosiale funksjoner</li>
+        <li>Vi er med i Googles <strong>&laquo;Designed for Families&raquo;</strong>-program</li>
+      </ul>
+
+      <div class="callout">
+        <strong>For foreldre som vil vite mer:</strong> Les v&aring;r <a href="/personvern">personvernerkl&aelig;ring</a> &mdash; den er skrevet p&aring; norsk, i klarspråk, og forklarer n&oslash;yaktig hva vi gj&oslash;r og ikke gj&oslash;r med data.
+      </div>
+
+      <h2>Hva barnet gj&oslash;r i Lunelo</h2>
+
+      <p>
+        Lunelo har 30 minispill fordelt p&aring; fem verdener. Hvert spill er designet for &aring; trene en konkret ferdighet &mdash; ikke for &aring; holde barnet opptatt lengst mulig:
+      </p>
+
+      <ul>
+        <li><strong>Bokstavverden:</strong> Forme bokstaver, koble lyd til bokstav, stave enkle ord</li>
+        <li><strong>Tallverden:</strong> Telle dyr, sortere st&oslash;rrelser, kjenne igjen m&oslash;nstre</li>
+        <li><strong>Formverden:</strong> Gjenkjenne geometriske former, fargelegging, romforst&aring;else</li>
+        <li><strong>Ordverden:</strong> Lese enkle ord, koble ord til bilder, bygge setninger</li>
+        <li><strong>Hukommelsesverden:</strong> Memory-spill, finn forskjellen, sekvensoppgaver</li>
+      </ul>
+
+      <p>
+        Alle spill gir umiddelbar tilbakemelding med lyd og animasjon. Barnet l&aelig;rer i sitt eget tempo &mdash; ingen tidspres, ingen poengkonkurranse mot andre.
+      </p>
+
+      <h2>Tips for foreldre</h2>
+
+      <ol>
+        <li><strong>Sitt sammen de f&oslash;rste gangene.</strong> Barnet f&aring;r mer ut av spillene n&aring;r dere snakker om det sammen. &laquo;Hvilken bokstav var det?&raquo; forsterker l&aelig;ringen.</li>
+        <li><strong>Bruk appen som belønning, ikke trøst.</strong> &laquo;N&aring; kan du spille Lunelo fordi du ryddet rommet&raquo; skaper en sunnere relasjon til skjermtid enn &laquo;her, v&aelig;r stille&raquo;.</li>
+        <li><strong>Sett en timer.</strong> Selv om innholdet er bra, er pauser viktige. 15&ndash;20 minutter av gangen er en god start for fire&aring;ringer.</li>
+        <li><strong>Veksle med fysisk lek.</strong> Den beste skjermtiden er den som inspirerer til aktivitet etterp&aring;. &laquo;Du l&aelig;rte bokstaven B &mdash; finner du noe som begynner p&aring; B?&raquo;</li>
+      </ol>
+
+      <h2>Sjekkliste: er appen trygg nok?</h2>
+
+      <div class="red-flag">
+        <h4>Kj&oslash;r gjennom denne listen f&oslash;r du gir barnet en ny app:</h4>
+        <ul>
+          <li>Ingen reklame mellom spill eller aktiviteter?</li>
+          <li>Ingen kj&oslash;p-knapper barnet kan trykke p&aring;?</li>
+          <li>Synlig personvernerkl&aelig;ring p&aring; et spr&aring;k du forst&aring;r?</li>
+          <li>Ingen krav om kamera, mikrofon eller kontakter?</li>
+          <li>Ingen chat eller sosiale funksjoner?</li>
+          <li>Fungerer offline?</li>
+          <li>Med i Googles &laquo;Designed for Families&raquo;?</li>
+        </ul>
+      </div>
+
+      <p>
+        Lunelo oppfyller alle sju punktene. <a href="/blog/trygge-apper-for-barn.html">Les mer om hva som gj&oslash;r en barneapp trygg</a>, eller pr&oslash;v selv &mdash; 6 spill er helt gratis.
+      </p>
+
+      <div class="cta-box">
+        <h3>F&aring; beskjed n&aring;r Lunelo lanseres</h3>
+        <p>
+          6 gratis spill. Ingen reklame. Ingen sporing. Skriv inn e-posten din, s&aring; gir vi deg beskjed n&aring;r appen er klar.
+        </p>
+        <form action="https://formspree.io/f/mdkgppan" method="POST">
+          <input type="email" name="email" placeholder="din@epost.no" required>
+          <button type="submit">Gi meg beskjed</button>
+        </form>
+      </div>
+
+    </div>
+  </article>
+
+  <footer>
+    <p>&copy; 2026 Lunelo &mdash; Adea IT AS (Org.nr: 922 689 148). Oslo, Norway.</p>
+    <div class="links">
+      <a href="/">Hjem</a>
+      <a href="https://instagram.com/lunelo.no" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:contact@lunelo.no">Kontakt</a>
+      <a href="/personvern">Personvern</a>
+    </div>
+  </footer>
+
+</body>
+</html>

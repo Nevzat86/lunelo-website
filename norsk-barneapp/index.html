@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Norsk barneapp uten reklame &mdash; Lunelo</title>
+  <meta name="description" content="Lunelo er en norsk l&aelig;ringsapp utviklet i Oslo. Ingen reklame, ingen sporing. COPPA- og GDPR-samsvar. 30 spill for barn 4-8 &aring;r.">
+  <meta name="keywords" content="norsk barneapp, barneapp uten reklame, trygg app barn, COPPA barneapp, GDPR barneapp, reklamefri barneapp, norsk app barn">
+  <meta property="og:title" content="Norsk barneapp uten reklame &mdash; Lunelo">
+  <meta property="og:description" content="Utviklet i Oslo. Ingen reklame, ingen sporing, COPPA- og GDPR-samsvar. 30 l&aelig;ringsspill for barn 4&ndash;8 &aring;r.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lunelo.no/norsk-barneapp/">
+  <meta property="og:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:site_name" content="Lunelo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Norsk barneapp uten reklame &mdash; Lunelo">
+  <meta name="twitter:description" content="Utviklet i Oslo. Ingen reklame, ingen sporing, COPPA- og GDPR-samsvar. 30 spill for barn 4&ndash;8 &aring;r.">
+  <meta name="twitter:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
+  <link rel="canonical" href="https://lunelo.no/norsk-barneapp/">
+  <link rel="icon" type="image/svg+xml" href="/branding/bonk-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Lunelo",
+    "operatingSystem": "Android",
+    "applicationCategory": "EducationApplication",
+    "description": "Norsk l\u00e6ringsapp utviklet i Oslo. Ingen reklame, ingen sporing. COPPA- og GDPR-samsvar. 30 spill for barn 4-8 \u00e5r.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "NOK",
+      "description": "Gratis med 6 spill. Full versjon: engangsbetaling."
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Lunelo",
+      "url": "https://lunelo.no",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oslo",
+        "addressCountry": "NO"
+      }
+    },
+    "inLanguage": ["nb", "en", "de", "sv", "da", "es", "sq"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --red: #FF4757;
+      --yellow: #FECA57;
+      --light-red: #FF6B81;
+      --bg-dark: #0f0f1a;
+      --bg-section: #141425;
+      --bg-card: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --text: #e0e0e0;
+      --text-muted: #aaa;
+      --text-dim: #999;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .blog-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(20,20,40,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .blog-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .blog-nav a:hover { color: #fff; }
+
+    .blog-nav .nav-logo {
+      height: 24px;
+      filter: drop-shadow(0 1px 4px rgba(255,71,87,0.15));
+    }
+
+    .article-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .article-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .article-intro {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 48px;
+      border-left: 3px solid var(--red);
+      padding-left: 20px;
+    }
+
+    .article-body h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 800;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--yellow);
+    }
+
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 16px 0 24px 24px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .article-body li { margin-bottom: 8px; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+
+    .article-body a {
+      color: var(--light-red);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .article-body a:hover { color: var(--yellow); }
+
+    .callout {
+      background: rgba(254,202,87,0.06);
+      border: 1px solid rgba(254,202,87,0.15);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .callout strong { color: var(--yellow); }
+
+    .red-flag {
+      background: rgba(255,71,87,0.06);
+      border: 1px solid rgba(255,71,87,0.15);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .red-flag h4 {
+      color: var(--red);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .red-flag ul {
+      margin: 0 0 0 20px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .cta-box {
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .cta-box p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .cta-box a {
+      color: var(--light-red);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .cta-box form { margin-top: 16px; }
+
+    .cta-box input[type="email"] {
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-size: 15px;
+      width: 260px;
+      max-width: 100%;
+      margin-right: 8px;
+    }
+
+    .cta-box button {
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      background: var(--red);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .cta-box button:hover { background: var(--light-red); }
+
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--text-dim);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover { color: var(--text-muted); }
+
+    footer .links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .article-wrapper { padding: 80px 20px 60px; }
+      .article-intro { font-size: 16px; }
+      .cta-box input[type="email"] { width: 100%; margin-right: 0; margin-bottom: 8px; }
+      .cta-box button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="blog-nav">
+    <a href="/">
+      <img src="/branding/lunelo-logo.svg" alt="Lunelo" class="nav-logo">
+    </a>
+    <a href="/">&larr; Tilbake til forsiden</a>
+  </nav>
+
+  <article class="article-wrapper">
+    <p class="article-meta">Personvern og sikkerhet &middot; Lunelo</p>
+    <h1 class="article-title">Norsk barneapp uten reklame</h1>
+
+    <p class="article-intro">
+      Vi er foreldre i Oslo som ble lei av barneapper fulle av reklame, kj&oslash;psknapper og datainnsamling. S&aring; vi bygget en app vi faktisk ville gi til v&aring;re egne barn. Lunelo har null reklame, null sporing, og null overraskelser. Her er hva det betyr i praksis.
+    </p>
+
+    <div class="article-body">
+
+      <h2>Utviklet i Oslo, for norske familier</h2>
+
+      <p>
+        Lunelo er laget av Adea IT AS, et lite selskap i Oslo. Vi er ikke et anonymt selskap i et land uten personvernlovgivning. Vi er registrert i Br&oslash;nn&oslash;ysund (org.nr 922 689 148), vi betaler norsk skatt, og vi svarer p&aring; e-post n&aring;r du skriver til oss. Det h&oslash;res kanskje banalt ut, men i en verden der de fleste barneapper lages av selskaper du aldri har h&oslash;rt om, med personvernpolicyer skrevet p&aring; juridisk kinesisk, er det faktisk verdt &aring; nevne.
+      </p>
+
+      <p>
+        Appen er bygget med norske barn som hovedm&aring;lgruppe. Det betyr at spr&aring;ket er norsk f&oslash;rst (&aelig;, &oslash;, &aring; inkludert), at innholdet er tilpasset norsk barnehage- og skoletradisjon, og at personvernet f&oslash;lger norsk lov &mdash; ikke bare som et minimum, men som en grunnverdi.
+      </p>
+
+      <h2>Null reklame, null sporing &mdash; null kompromiss</h2>
+
+      <p>
+        Mange barneapper sier de er &laquo;gratis&raquo;. Men gratis betyr at noen andre betaler &mdash; og den noen er ofte barnet ditt, gjennom reklame, datadeling eller kj&oslash;psknapper designet for &aring; utnytte at en fir&aring;ring ikke forst&aring;r hva &laquo;49 kr&raquo; betyr.
+      </p>
+
+      <div class="red-flag">
+        <h4>Hva Lunelo IKKE gj&oslash;r:</h4>
+        <ul>
+          <li>Viser reklame &mdash; aldri, uansett. Ikke bannere, ikke videoer, ikke &laquo;sponset innhold&raquo;.</li>
+          <li>Samler inn personopplysninger &mdash; vi vet ikke hvem barnet ditt er, og vi vil ikke vite det.</li>
+          <li>Sporer adferd &mdash; ingen analyse-SDK, ingen Firebase Analytics, ingen Facebook Pixel.</li>
+          <li>Har kj&oslash;p inne i appen &mdash; ingen &laquo;mynter&raquo;, ingen &laquo;premium-niv&aring;er&raquo; som dukker opp midt i leken.</li>
+          <li>Krever internett &mdash; appen fungerer 100 % offline. Ingen data sendes noe sted.</li>
+          <li>Har chat eller sosiale funksjoner &mdash; barnet snakker ikke med fremmede i en bokstavapp.</li>
+        </ul>
+      </div>
+
+      <p>
+        Vi tjener penger p&aring; &eacute;n m&aring;te: du kj&oslash;per full versjon av appen. &Eacute;n gang. Ingen abonnement, ingen fornyelser, ingen &laquo;premium-nivå&raquo; som plutselig koster ekstra. Det er en enkel deal: du betaler, barnet f&aring;r tilgang til alle 30 spill, og vi f&aring;r r&aring;d til &aring; fortsette &aring; utvikle.
+      </p>
+
+      <h2>Hva barnet faktisk l&aelig;rer</h2>
+
+      <p>
+        Lunelo er organisert i fem verdener med til sammen 30 spill. Hvert spill er designet for barn mellom 4 og 8 &aring;r:
+      </p>
+
+      <ul>
+        <li><strong><a href="/laer-bokstaver/">Bokstavlandet</a></strong> &mdash; Bokstavjakt, sporing, lyd-kobling, alfabetrekkef&oslash;lge, match og f&oslash;rstebokstav.</li>
+        <li><strong><a href="/laer-tall/">Tallriket</a></strong> &mdash; Telling, tallrekke, addisjon, st&oslash;rre/mindre, tallord og subtraksjon.</li>
+        <li><strong>Formverdenen</strong> &mdash; Gjenkjenning av former, m&oslash;nstre, farger og visuell logikk.</li>
+        <li><strong>Ordriket</strong> &mdash; F&oslash;rste ord, ordbilder og enkel leseforst&aring;else.</li>
+        <li><strong>Bonusverdenen</strong> &mdash; Blanding av ferdigheter for barn som vil ha ekstra utfordring.</li>
+      </ul>
+
+      <p>
+        Alt er tilgjengelig p&aring; <a href="/flerspraklig-laering/">7 spr&aring;k</a> &mdash; norsk, engelsk, tysk, svensk, dansk, spansk og albansk. Bytt midt i en &oslash;kt med ett trykk.
+      </p>
+
+      <h2>&Eacute;n pris, for alltid</h2>
+
+      <p>
+        Abonnementsmodellen har spredt seg til barneapper de siste &aring;rene. Du betaler 79 kr i m&aring;neden, glemmer &aring; si opp, og plutselig har du brukt 948 kr p&aring; en app ungen sluttet &aring; bruke i august. Vi gj&oslash;r det annerledes.
+      </p>
+
+      <p>
+        Seks spill er helt gratis. Ingen registrering, ingen kredittkort, ingen &laquo;pr&oslash;veperiode&raquo; som automatisk fornyes. Liker barnet appen? Da kj&oslash;per du full versjon &eacute;n gang. Du eier den. Alle fremtidige oppdateringer er inkludert. Ingen sm&aring;skrift.
+      </p>
+
+      <h2>Fungerer helt offline</h2>
+
+      <p>
+        Alt innhold i Lunelo er lagret lokalt p&aring; enheten. Det betyr at appen fungerer p&aring; hytta uten dekning, i bilen p&aring; langtur, og i flyet. Det betyr ogs&aring; at ingen data sendes over nettet &mdash; det finnes rett og slett ikke noe &aring; sende, fordi vi ikke samler noe.
+      </p>
+
+      <p>
+        For deg som forelder betyr det &eacute;n ting mindre &aring; bekymre seg for. Barnet kan spille trygt, uten at du trenger &aring; overv&aring;ke hva som skjer p&aring; skjermen hvert eneste minutt.
+      </p>
+
+      <h2>Norske verdier i en global apphverdag</h2>
+
+      <p>
+        I Norge har vi en tradisjon for at barn skal f&aring; v&aelig;re barn. At lek er verdifullt i seg selv. At vi beskytter barna v&aring;re mot kommersielt press. Lunelo er bygget p&aring; de verdiene. Ikke fordi det er et markedsf&oslash;ringstriks, men fordi vi lager den for v&aring;re egne barn.
+      </p>
+
+      <p>
+        Vi er COPPA-kompatible (den amerikanske standarden for barns personvern) og GDPR-kompatible (den europeiske). Men egentlig handler det ikke om lover og bokstaver. Det handler om at vi vil at du skal f&oslash;le deg trygg n&aring;r du gir nettbrettet til ungen din. <a href="/blog/trygge-apper-for-barn.html">Les mer om hvordan du velger trygge apper for barn</a>.
+      </p>
+
+      <div class="cta-box">
+        <h3>Pr&oslash;v Lunelo &mdash; gratis og uten forpliktelser</h3>
+        <p>
+          6 spill. Null reklame. Null sporing. Null registrering. Bare last ned og la barnet pr&oslash;ve. Legg igjen e-posten din for &aring; f&aring; beskjed n&aring;r appen er klar.
+        </p>
+        <form action="https://formspree.io/f/mdkgppan" method="POST">
+          <input type="email" name="email" placeholder="din@epost.no" required>
+          <button type="submit">Gi meg beskjed</button>
+        </form>
+      </div>
+
+      <p style="margin-top: 32px; font-size: 14px; color: var(--text-dim);">
+        Les ogs&aring;: <a href="/laeringsapp-barn/">Beste l&aelig;ringsapp for barn 4&ndash;8 &aring;r</a> &middot; <a href="/flerspraklig-laering/">Flerspr&aring;klig l&aelig;ringsapp</a> &middot; <a href="/blog/trygge-apper-for-barn.html">Blogg: Trygge apper for barn uten reklame</a>
+      </p>
+
+    </div>
+  </article>
+
+  <footer>
+    <p>&copy; 2026 Lunelo &mdash; Adea IT AS (Org.nr: 922 689 148). Oslo, Norway.</p>
+    <div class="links">
+      <a href="/">Hjem</a>
+      <a href="/personvern">Personvern</a>
+      <a href="mailto:contact@lunelo.no">Kontakt</a>
+    </div>
+  </footer>
+
+</body>
+</html>

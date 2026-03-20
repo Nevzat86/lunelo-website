@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Screen Time Learning App for Kids | Lunelo</title>
+  <meta name="description" content="Turn screen time into learning time. Lunelo offers 30 ad-free educational games for kids 4-8. No tracking, no social features. Free to try.">
+  <meta name="keywords" content="safe screen time kids, screen time learning app, educational screen time, ad-free kids app, safe kids app, screen time toddlers">
+  <meta property="og:title" content="Safe Screen Time Learning App for Kids | Lunelo">
+  <meta property="og:description" content="Turn screen time into learning time. 30 ad-free educational games for kids 4-8. No tracking, no social features.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lunelo.no/screen-time-learning-app/">
+  <meta property="og:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Lunelo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Safe Screen Time Learning App for Kids | Lunelo">
+  <meta name="twitter:description" content="Turn screen time into learning time. 30 ad-free educational games for kids 4-8.">
+  <meta name="twitter:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
+  <link rel="canonical" href="https://lunelo.no/screen-time-learning-app/">
+  <link rel="alternate" hreflang="en" href="https://lunelo.no/screen-time-learning-app/">
+  <link rel="alternate" hreflang="no" href="https://lunelo.no/trygg-skjermtid/">
+  <link rel="icon" type="image/svg+xml" href="/branding/bonk-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Lunelo",
+    "description": "Safe screen time learning app for kids 4-8. 30 ad-free educational games with no tracking and no social features.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Lunelo",
+      "url": "https://lunelo.no"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "suggestedMinAge": 4,
+      "suggestedMaxAge": 8
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --red: #FF4757;
+      --yellow: #FECA57;
+      --light-red: #FF6B81;
+      --bg-dark: #0f0f1a;
+      --bg-section: #141425;
+      --bg-card: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --text: #e0e0e0;
+      --text-muted: #aaa;
+      --text-dim: #999;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .blog-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(20,20,40,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .blog-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .blog-nav a:hover { color: #fff; }
+
+    .blog-nav .nav-logo {
+      height: 24px;
+      filter: drop-shadow(0 1px 4px rgba(255,71,87,0.15));
+    }
+
+    .article-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .article-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .article-intro {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 48px;
+      border-left: 3px solid var(--red);
+      padding-left: 20px;
+    }
+
+    .article-body h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 800;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--yellow);
+    }
+
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 16px 0 24px 24px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .article-body li { margin-bottom: 8px; }
+
+    .article-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .article-body a {
+      color: var(--light-red);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .article-body a:hover { color: var(--yellow); }
+
+    .callout {
+      background: rgba(254,202,87,0.06);
+      border: 1px solid rgba(254,202,87,0.15);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .callout strong { color: var(--yellow); }
+
+    .red-flag {
+      background: rgba(255,71,87,0.06);
+      border: 1px solid rgba(255,71,87,0.15);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .red-flag h4 {
+      color: var(--red);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .red-flag ul {
+      margin: 0 0 0 20px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .safety-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+
+    .safety-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+
+    .safety-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .safety-card p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .cta-box p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .cta-box a {
+      color: var(--light-red);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .cta-box form {
+      display: flex;
+      gap: 10px;
+      max-width: 420px;
+      margin: 16px auto 0;
+    }
+
+    .cta-box input[type="email"] {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .cta-box input[type="email"]::placeholder { color: var(--text-dim); }
+
+    .cta-box button {
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--red);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .cta-box button:hover { background: var(--light-red); }
+
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--text-dim);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover { color: var(--text-muted); }
+
+    footer .links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .article-wrapper { padding: 80px 20px 60px; }
+      .article-intro { font-size: 16px; }
+      .safety-grid { grid-template-columns: 1fr; }
+      .cta-box form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="blog-nav">
+    <a href="/">
+      <img src="/branding/lunelo-logo.svg" alt="Lunelo" class="nav-logo">
+    </a>
+    <a href="/">&larr; Back to home</a>
+  </nav>
+
+  <article class="article-wrapper">
+    <p class="article-meta">Lunelo &middot; Educational app for kids 4&ndash;8</p>
+    <h1 class="article-title">Safe Screen Time Learning App</h1>
+
+    <p class="article-intro">
+      The question is not whether your child will use screens &mdash; it is what happens on that screen. Lunelo turns screen time into active learning time with 30 educational games, zero ads, zero tracking and zero social features. Built for children ages 4 to 8, trusted by parents.
+    </p>
+
+    <div class="article-body">
+
+      <h2>Screen time parents can trust</h2>
+
+      <p>
+        Most parents feel conflicted about screen time. The research is clear: what matters is not how many minutes your child spends on a screen, but the <em>quality</em> of that time. A study from the University of Oxford found that the content and context of screen use are far more important than duration alone.
+      </p>
+
+      <p>
+        Passive consumption &mdash; endless video feeds, mindless tapping &mdash; is very different from active engagement. When your child traces a letter, counts animals, or spots the difference between two pictures, their brain is working. That is the kind of screen time Lunelo provides.
+      </p>
+
+      <h2>What makes Lunelo safe</h2>
+
+      <div class="safety-grid">
+        <div class="safety-card">
+          <h4>Zero ads</h4>
+          <p>No banners, no video ads, no interstitials. Your child never sees advertising of any kind inside the app.</p>
+        </div>
+        <div class="safety-card">
+          <h4>Zero tracking</h4>
+          <p>No analytics libraries, no advertising SDKs, no data collection. We literally cannot see who uses the app.</p>
+        </div>
+        <div class="safety-card">
+          <h4>Zero social features</h4>
+          <p>No chat, no friend requests, no user profiles, no leaderboards. Your child interacts with games, not strangers.</p>
+        </div>
+        <div class="safety-card">
+          <h4>Fully offline</h4>
+          <p>The app works without an internet connection. No data leaves the device, ever. Perfect for flights and car rides.</p>
+        </div>
+        <div class="safety-card">
+          <h4>No surprise purchases</h4>
+          <p>Free games are truly free. The upgrade is a one-time payment. No coins, gems, or hidden purchase buttons.</p>
+        </div>
+        <div class="safety-card">
+          <h4>COPPA &amp; GDPR compliant</h4>
+          <p>Designed from day one to meet international privacy laws for children. Not an afterthought.</p>
+        </div>
+      </div>
+
+      <h2>Active, not passive</h2>
+
+      <p>
+        Every game in Lunelo requires your child to <em>do</em> something. There is no watching, no swiping through a feed, no autoplay. Here is what active learning looks like inside the app:
+      </p>
+
+      <ul>
+        <li><strong>Trace letters</strong> with their finger &mdash; building fine motor skills and letter recognition at the same time</li>
+        <li><strong>Count colourful animals</strong> and tap the right number &mdash; connecting visual quantities to numerals</li>
+        <li><strong>Spot the difference</strong> between two pictures &mdash; training observation, focus and visual memory</li>
+        <li><strong>Drag letters into place</strong> to build words &mdash; turning letter knowledge into reading readiness</li>
+        <li><strong>Complete patterns</strong> &mdash; building the logical thinking skills that underpin mathematics</li>
+      </ul>
+
+      <p>
+        30 games across 5 worlds cover letters, numbers, shapes, words and memory. See the <a href="/educational-games-for-kids/">full game overview</a> for details on every world.
+      </p>
+
+      <h2>Privacy by design</h2>
+
+      <p>
+        Many apps claim to be &ldquo;kid-safe&rdquo; while quietly running advertising SDKs and analytics in the background. A <a href="https://www.bmj.com/company/newsroom/most-health-apps-for-children-fail-to-protect-their-data-privacy/" target="_blank" rel="noopener">BMJ study</a> found that 72% of popular children's apps share data with third parties. Lunelo takes the opposite approach.
+      </p>
+
+      <div class="red-flag">
+        <h4>What Lunelo does NOT do:</h4>
+        <ul>
+          <li>We do not collect names, emails or any personal information from children</li>
+          <li>We do not use advertising networks or data brokers</li>
+          <li>We do not include analytics that track behaviour or usage patterns</li>
+          <li>We do not require an internet connection to play</li>
+          <li>We do not share any data with third parties &mdash; because we have no data to share</li>
+        </ul>
+      </div>
+
+      <p>
+        Our <a href="/privacy/">privacy policy</a> is written in plain language and explains exactly what we do and do not do. No legal jargon designed to confuse.
+      </p>
+
+      <h2>Tips for parents</h2>
+
+      <ol>
+        <li><strong>Play together first.</strong> Sit with your child for the first session. Talk about what they see and hear. This multiplies the learning value.</li>
+        <li><strong>Use it as reward time, not filler.</strong> &ldquo;You can play Lunelo after dinner&rdquo; creates a healthier relationship with screen time than handing over a tablet to keep them quiet.</li>
+        <li><strong>Set a gentle timer.</strong> Even quality screen time benefits from breaks. 15&ndash;20 minutes at a stretch is a good starting point for 4&ndash;5 year olds.</li>
+        <li><strong>Connect to the real world.</strong> After playing a counting game, count things around the house. After tracing letters, find those letters on cereal boxes. The app becomes a springboard.</li>
+        <li><strong>Alternate with other activities.</strong> Lunelo is one tool in your toolkit &mdash; not a replacement for outdoor play, reading together, or creative play.</li>
+      </ol>
+
+      <div class="callout">
+        <strong>Expert perspective:</strong> The American Academy of Pediatrics recommends choosing &ldquo;high-quality programming&rdquo; and co-viewing with children. Lunelo is designed with exactly these recommendations in mind &mdash; educational content that parents can engage with alongside their child.
+      </div>
+
+      <h2>Try it free</h2>
+
+      <p>
+        Download Lunelo and your child can start playing 6 games immediately &mdash; no sign-up, no credit card, no strings attached. If they love it, unlock all 30 games for a one-time payment of $5.99. Read more about the <a href="/learn-norwegian-for-kids/">language learning features</a> or see <a href="/educational-games-for-kids/">all 30 games in detail</a>.
+      </p>
+
+      <div class="cta-box">
+        <h3>Get notified when Lunelo launches</h3>
+        <p>
+          6 free games. No ads. No tracking. Enter your email and we will let you know as soon as the app is available.
+        </p>
+        <form action="https://formspree.io/f/mdkgppan" method="POST">
+          <input type="email" name="email" placeholder="your@email.com" required>
+          <button type="submit">Notify me</button>
+        </form>
+      </div>
+
+    </div>
+  </article>
+
+  <footer>
+    <p>&copy; 2026 Lunelo &mdash; Adea IT AS (Org.nr: 922 689 148). Oslo, Norway.</p>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="https://instagram.com/lunelo.no" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:contact@lunelo.no">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
