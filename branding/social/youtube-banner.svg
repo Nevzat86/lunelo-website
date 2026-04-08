@@ -1,32 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1440" width="2560" height="1440">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2D3436"/>
-      <stop offset="50%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#2D3436"/>
+      <stop offset="0%" style="stop-color:#FFF5E6"/>
+      <stop offset="100%" style="stop-color:#FFE8C0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFA94D"/>
+      <stop offset="100%" style="stop-color:#E8890A"/>
     </linearGradient>
     <filter id="shadow">
-      <feDropShadow dx="3" dy="4" stdDeviation="4" flood-color="#1a1a1a" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#a05000" flood-opacity="0.3"/>
     </filter>
   </defs>
   <rect width="2560" height="1440" fill="url(#bg)"/>
-  <!-- Decorative elements -->
-  <circle cx="200" cy="1200" r="300" fill="#FF4757" opacity="0.08"/>
-  <circle cx="2400" cy="200" r="350" fill="#FECA57" opacity="0.06"/>
-  <circle cx="1280" cy="720" r="500" fill="#FF4757" opacity="0.04"/>
-  <!-- Safe zone guide (invisible, 1546x423 centered) -->
-  <!-- BONK -->
-  <text x="900" y="780" font-family="'Arial Black', Impact, sans-serif" font-size="250" font-weight="900" fill="#FF4757" filter="url(#shadow)">B</text>
-  <text x="1080" y="780" font-family="'Arial Black', Impact, sans-serif" font-size="250" font-weight="900" fill="#FECA57" filter="url(#shadow)">O</text>
-  <text x="1280" y="780" font-family="'Arial Black', Impact, sans-serif" font-size="250" font-weight="900" fill="#FF4757" filter="url(#shadow)">N</text>
-  <text x="1480" y="780" font-family="'Arial Black', Impact, sans-serif" font-size="250" font-weight="900" fill="#FECA57" filter="url(#shadow)">K</text>
-  <!-- Explosion -->
-  <g transform="translate(1170, 500)">
-    <polygon points="0,-50 10,-18 48,-30 20,-3 50,14 18,14 14,50 0,24 -14,50 -18,14 -50,14 -20,-3 -48,-30 -10,-18" fill="#FECA57" stroke="#FF4757" stroke-width="3"/>
-    <circle cx="0" cy="0" r="14" fill="#FF4757"/>
-  </g>
-  <!-- GAMES -->
-  <text x="1280" y="880" font-family="'Arial Black', Impact, sans-serif" font-size="80" fill="#ffffff" text-anchor="middle" letter-spacing="25" opacity="0.9">GAMES</text>
+  <!-- Decorative background circles -->
+  <circle cx="300" cy="1200" r="500" fill="#FFA94D" opacity="0.07"/>
+  <circle cx="2300" cy="250" r="600" fill="#FFD43B" opacity="0.06"/>
+  <circle cx="1280" cy="720" r="700" fill="#FFA94D" opacity="0.04"/>
+  <!-- Safe zone: 1546x423 centered (x=507, y=509) -->
+  <!-- Icon box -->
+  <rect x="680" y="500" width="350" height="350" rx="80" ry="80" fill="url(#accent)" filter="url(#shadow)"/>
+  <text x="855" y="750" font-family="'Arial Rounded MT Bold','Arial Black',sans-serif" font-size="270" font-weight="900" fill="#FFFFFF" text-anchor="middle">L</text>
+  <!-- LUNELO text -->
+  <text x="1100" y="730" font-family="'Arial Black',sans-serif" font-size="200" font-weight="900" fill="#2D3436" text-anchor="start" filter="url(#shadow)">LUNELO</text>
   <!-- Tagline -->
-  <text x="1280" y="960" font-family="'Segoe UI', sans-serif" font-size="36" fill="#888" text-anchor="middle" letter-spacing="6">HIT PLAY. HAVE FUN.</text>
+  <text x="1100" y="820" font-family="'Segoe UI',sans-serif" font-size="52" fill="#636E72" text-anchor="start" letter-spacing="8">TRYGG LÆRING GJENNOM LEK</text>
+  <!-- Stars -->
+  <g transform="translate(2100, 450)">
+    <polygon points="0,-40 8,-14 36,-24 16,-3 40,10 14,10 10,40 0,18 -10,40 -14,10 -40,10 -16,-3 -36,-24 -8,-14" fill="#FFD43B" stroke="#FFA94D" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="0" cy="0" r="12" fill="#FFA94D"/>
+  </g>
+  <g transform="translate(500, 300)">
+    <polygon points="0,-28 6,-10 26,-17 11,-2 28,8 10,8 8,28 0,14 -8,28 -10,8 -28,8 -11,-2 -26,-17 -6,-10" fill="#FFD43B" stroke="#FFA94D" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
+  </g>
 </svg>

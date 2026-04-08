@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lunelo &mdash; L&aelig;r bokstaver, tall og former &middot; Trygg norsk app for barn 4&ndash;8 &aring;r</title>
-  <meta name="description" content="Lunelo: Norsk l&aelig;ringsapp for barn 4&ndash;8 &aring;r. L&aelig;r &aring; lese, matte for barn, former og ord &mdash; 42 spill uten reklame og sporing. Trygg, reklamefri og COPPA-godkjent. 7 spr&aring;k.">
+  <meta name="description" content="Lunelo: Norsk l&aelig;ringsapp for barn 4&ndash;8 &aring;r. 42 spill &mdash; bokstaver, tall, former. Uten reklame og sporing. COPPA-godkjent. 7 spr&aring;k.">
   <meta name="keywords" content="l&aelig;ringsapp barn, l&aelig;re &aring; lese app, matte for barn, trygge barneapper, norsk barneapp, bokstaver for barn, tall for barn, reklamefri barneapp, COPPA">
   <meta property="og:title" content="Lunelo &mdash; Trygge l&aelig;ringsspill for barn 4&ndash;8 &aring;r">
   <meta property="og:description" content="42 l&aelig;ringsspill for barn 4&ndash;8 &aring;r. Bokstaver, tall, former og ord &mdash; uten reklame. 7 spr&aring;k.">
@@ -14,7 +14,37 @@
   <meta property="og:image:width" content="1024">
   <meta property="og:image:height" content="500">
   <meta property="og:locale" content="nb_NO">
+  <meta name="theme-color" content="#FFA94D">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lunelo — Trygge læringsspill for barn 4–8 år">
+  <meta name="twitter:description" content="42 læringsspill for barn 4–8 år. Bokstaver, tall, former og ord — uten reklame. 7 språk.">
+  <meta name="twitter:image" content="https://lunelo.no/branding/png-exports/playstore-feature-1024x500.png">
   <link rel="icon" type="image/svg+xml" href="branding/lunelo-icon.svg">
+  <link rel="icon" href="branding/png-exports/lunelo-icon-512x512.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Lunelo: Lær gjennom lek",
+    "operatingSystem": "Android",
+    "applicationCategory": "EducationApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "NOK",
+      "description": "6 spill gratis. Full tilgang: 59 kr engangssum."
+    },
+    "description": "42 læringsspill for barn 4–8 år. Bokstaver, tall, former og ord — uten reklame og sporing. 7 språk.",
+    "url": "https://play.google.com/store/apps/details?id=no.lunelo.app",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Adea IT AS",
+      "url": "https://lunelo.no"
+    }
+  }
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
@@ -211,6 +241,9 @@
     }
     .cta-btn:hover { transform: translateY(-2px) scale(1.03); }
 
+    .play-badge-link { display: inline-block; margin-top: 20px; transition: transform 0.2s, filter 0.2s; }
+    .play-badge-link:hover { transform: translateY(-2px); filter: drop-shadow(0 6px 16px rgba(0,0,0,0.22)); }
+
     /* ============ STICKY HEADER ============ */
     .site-header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -394,8 +427,10 @@
     .faq-q {
       font-size: 16px; font-weight: 800;
       cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      min-height: 48px;
+      min-height: 48px; width: 100%; text-align: left;
+      background: none; border: none; padding: 0; color: inherit; font-family: inherit;
     }
+    .faq-q:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
     .faq-q::after { content: '+'; font-size: 22px; color: var(--accent); font-weight: 900; }
     .faq-a {
       max-height: 0; overflow: hidden;
@@ -403,7 +438,7 @@
       font-size: 15px; color: var(--text-muted); line-height: 1.7; font-weight: 600;
     }
     .faq-item.open .faq-q::after { content: '\2212'; }
-    .faq-item.open .faq-a { max-height: 200px; padding-top: 12px; }
+    .faq-item.open .faq-a { max-height: 600px; padding-top: 12px; }
 
     /* ============ EMAIL FORM ============ */
     .email-form-wrapper {
@@ -482,7 +517,7 @@
     .night-footer p {
       position: relative;
       font-size: 13px; font-weight: 600;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.72);
       margin-bottom: 12px;
     }
 
@@ -493,7 +528,7 @@
     }
 
     .night-footer a {
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.72);
       text-decoration: none;
       font-size: 13px; font-weight: 600;
       transition: color 0.3s;
@@ -534,7 +569,7 @@
 
   <!-- ======== STICKY HEADER ======== -->
   <header class="site-header">
-    <a href="/" class="header-brand">
+    <a href="/" class="header-brand" aria-label="Gå til forsiden">
       <img src="branding/lunelo-icon.svg" alt="Lunelo" class="header-logo">
       <span class="header-name">Lunelo</span>
     </a>
@@ -571,14 +606,14 @@
         <span class="pill">Android</span>
       </div>
       <form id="signup" class="email-form-wrapper" action="https://formsubmit.co/ajax/contact@lunelo.no" method="POST">
-        <input type="email" name="email" class="email-input" placeholder="Din e-postadresse" required>
+        <input type="email" name="email" class="email-input" placeholder="Din e-postadresse" required aria-label="E-postadresse for iOS-venteliste">
         <input type="hidden" name="_subject" value="Ny påmelding fra lunelo.no">
         <input type="hidden" name="_captcha" value="false">
         <button type="submit" class="cta-btn">Bli varslet om iOS-lansering</button>
       </form>
       <p style="font-size:13px;color:var(--text-light);margin-top:10px;font-weight:600;">Meld deg på iOS-ventelisten &mdash; vi varsler deg n&aring;r Lunelo er p&aring; App Store.</p>
-      <a href="https://play.google.com/store/apps/details?id=no.lunelo.app" target="_blank" rel="noopener" style="display:inline-block;margin-top:20px;transition:transform 0.2s,filter 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.filter='drop-shadow(0 6px 16px rgba(0,0,0,0.22))'" onmouseout="this.style.transform='';this.style.filter=''">
-        <img src="https://play.google.com/intl/no/badges/static/images/badges/no_badge_web_generic.png" alt="Hent det på Google Play" height="60" style="display:block;">
+      <a href="https://play.google.com/store/apps/details?id=no.lunelo.app&utm_source=lunelo.no&utm_medium=website&utm_campaign=hero" target="_blank" rel="noopener noreferrer" class="play-badge-link">
+        <img src="https://play.google.com/intl/no/badges/static/images/badges/no_badge_web_generic.png" alt="Hent det på Google Play" width="220" height="60" style="display:block;">
       </a>
     </div>
   </section>
@@ -606,7 +641,7 @@
     </div>
     <div class="trust-div"></div>
     <div class="trust-item" data-tooltip="Utviklet av Adea IT AS i Oslo, Norge">
-      <div class="trust-num" style="font-size:clamp(20px,3vw,28px);">&#x1F1F3;&#x1F1F4;</div>
+      <div class="trust-num" style="font-size:clamp(20px,3vw,28px);"><span role="img" aria-label="Norsk flagg">&#x1F1F3;&#x1F1F4;</span></div>
       <div class="trust-label">Norskutviklet</div>
     </div>
   </div>
@@ -618,11 +653,11 @@
       <h2 class="section-title fade-in">Slik ser det ut inni Lunelo</h2>
     </div>
     <div class="screenshots-scroll fade-in">
-      <div class="screenshot-frame"><picture><source srcset="screenshots/store-01-welcome.webp" type="image/webp"><img src="screenshots/store-01-welcome.png" alt="Lunelo velkomstskjerm" loading="lazy"></picture></div>
-      <div class="screenshot-frame"><picture><source srcset="screenshots/store-02-worldmap.webp" type="image/webp"><img src="screenshots/store-02-worldmap.png" alt="Verdenskart med 5 verdener" loading="lazy"></picture></div>
-      <div class="screenshot-frame"><picture><source srcset="screenshots/store-06-gameplay-letters.webp" type="image/webp"><img src="screenshots/store-06-gameplay-letters.png" alt="Bokstavspill i Bokstavland" loading="lazy"></picture></div>
-      <div class="screenshot-frame"><picture><source srcset="screenshots/store-07-gameplay-math.webp" type="image/webp"><img src="screenshots/store-07-gameplay-math.png" alt="Mattespill i Tallriket" loading="lazy"></picture></div>
-      <div class="screenshot-frame"><picture><source srcset="screenshots/store-11-memory.webp" type="image/webp"><img src="screenshots/store-11-memory.png" alt="Hukommelsesspill" loading="lazy"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-01-welcome.webp" type="image/webp"><img src="screenshots/store-01-welcome.png" alt="Lunelo velkomstskjerm" loading="lazy" width="220" height="440"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-02-worldmap.webp" type="image/webp"><img src="screenshots/store-02-worldmap.png" alt="Verdenskart med 5 verdener" loading="lazy" width="220" height="440"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-06-gameplay-letters.webp" type="image/webp"><img src="screenshots/store-06-gameplay-letters.png" alt="Bokstavspill i Bokstavland" loading="lazy" width="220" height="440"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-07-gameplay-math.webp" type="image/webp"><img src="screenshots/store-07-gameplay-math.png" alt="Mattespill i Tallriket" loading="lazy" width="220" height="440"></picture></div>
+      <div class="screenshot-frame"><picture><source srcset="screenshots/store-11-memory.webp" type="image/webp"><img src="screenshots/store-11-memory.png" alt="Hukommelsesspill" loading="lazy" width="220" height="440"></picture></div>
     </div>
   </section>
 
@@ -822,23 +857,23 @@
       <h2 class="section-title fade-in">Foreldre sp&oslash;r ofte</h2>
       <div class="faq-list">
         <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Er det skjulte kj&oslash;p eller abonnementsfeller?</div>
+          <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Er det skjulte kj&oslash;p eller abonnementsfeller?</button>
           <div class="faq-a">Nei. Lunelo har &eacute;n engangssum p&aring; 59 kr som l&aring;ser opp alle 42 spill for alltid. Ingen abonnement, ingen overraskelser. 6 spill er helt gratis.</div>
         </div>
         <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Trenger barna internett for &aring; spille?</div>
+          <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Trenger barna internett for &aring; spille?</button>
           <div class="faq-a">Nei! Lunelo fungerer 100&percnt; offline. Perfekt p&aring; bilturer, flyreiser og p&aring; hytta uten wifi.</div>
         </div>
         <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Er appen trygg for barn?</div>
+          <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Er appen trygg for barn?</button>
           <div class="faq-a">Ja. Lunelo har null reklame, null sporing og ingen sosiale funksjoner. Vi samler ikke inn persondata. Appen f&oslash;lger COPPA og GDPR-K for barns personvern.</div>
         </div>
         <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Hvilke spr&aring;k st&oslash;ttes?</div>
+          <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Hvilke spr&aring;k st&oslash;ttes?</button>
           <div class="faq-a">Norsk, engelsk, tysk, svensk, dansk, spansk og albansk &mdash; med innebygd tale p&aring; alle spr&aring;k.</div>
         </div>
         <div class="faq-item fade-in">
-          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Hvem har laget Lunelo?</div>
+          <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Hvem har laget Lunelo?</button>
           <div class="faq-a">Lunelo er utviklet av Adea IT AS i Oslo, Norge. Et lite studio som lager trygge l&aelig;ringsspill for barn &mdash; uten reklame og uten sporing.</div>
         </div>
       </div>
@@ -906,24 +941,47 @@
         ev.preventDefault();
         var btn = signupForm.querySelector('.cta-btn');
         var origText = btn.textContent;
-        btn.textContent = 'Sender...';
+        var errEl = signupForm.querySelector('.form-error');
+        if (errEl) errEl.remove();
+        btn.textContent = 'Sender\u2026';
         btn.disabled = true;
+
+        var controller = new AbortController();
+        var timeout = setTimeout(function() { controller.abort(); }, 10000);
+
         fetch(signupForm.action, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: signupForm.querySelector('input[type=email]').value, _subject: 'Ny p\u00e5melding fra lunelo.no' })
-        }).then(function(res) { return res.json(); }).then(function(data) {
+          body: JSON.stringify({
+            email: signupForm.querySelector('input[type=email]').value,
+            _subject: 'Ny p\u00e5melding fra lunelo.no',
+            _captcha: 'false'
+          }),
+          signal: controller.signal
+        }).then(function(res) {
+          clearTimeout(timeout);
+          return res.json();
+        }).then(function(data) {
           if (data.success === 'true' || data.success === true) {
-            signupForm.innerHTML = '<p style="font-size:18px;font-weight:800;color:var(--green);">&#x2728; Du er p\u00e5meldt! Vi gir deg beskjed n\u00e5r Lunelo er p\u00e5 iOS.</p>';
+            signupForm.innerHTML = '<p style="font-size:18px;font-weight:800;color:var(--green);text-align:center;padding:8px 0;">&#x2728; Du er p\u00e5meldt! Vi gir deg beskjed n\u00e5r Lunelo er p\u00e5 iOS.</p>';
           } else {
             btn.textContent = origText;
             btn.disabled = false;
-            alert('Noe gikk galt. Pr\u00f8v igjen!');
+            var e = document.createElement('p');
+            e.className = 'form-error';
+            e.style.cssText = 'color:var(--coral);font-size:13px;font-weight:700;margin-top:8px;text-align:center;';
+            e.textContent = 'Noe gikk galt \u2014 pr\u00f8v igjen.';
+            signupForm.appendChild(e);
           }
-        }).catch(function() {
+        }).catch(function(err) {
+          clearTimeout(timeout);
           btn.textContent = origText;
           btn.disabled = false;
-          alert('Noe gikk galt. Pr\u00f8v igjen!');
+          var e = document.createElement('p');
+          e.className = 'form-error';
+          e.style.cssText = 'color:var(--coral);font-size:13px;font-weight:700;margin-top:8px;text-align:center;';
+          e.textContent = err && err.name === 'AbortError' ? 'Tidsavbrudd \u2014 sjekk internett og pr\u00f8v igjen.' : 'Noe gikk galt \u2014 pr\u00f8v igjen.';
+          signupForm.appendChild(e);
         });
       });
     }
