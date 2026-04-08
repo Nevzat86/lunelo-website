@@ -536,6 +536,57 @@
     }
     .night-footer a:hover { color: var(--yellow); }
 
+    /* ============ WORLD INFO PANEL ============ */
+    .world-panel {
+      max-width: 640px; margin: 32px auto 0;
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      box-shadow: var(--shadow-hover);
+      display: none; position: relative;
+    }
+    .world-panel.visible {
+      display: block;
+      animation: fade-up 0.35s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .world-panel-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none; font-size: 22px;
+      color: var(--text-muted); cursor: pointer; padding: 4px 8px;
+      border-radius: 8px; transition: background 0.2s;
+    }
+    .world-panel-close:hover { background: var(--bg-soft); }
+    .world-panel-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 10px;
+    }
+    .world-panel-dot {
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+    }
+    .world-panel-title { font-size: 22px; font-weight: 900; }
+    .world-panel-desc {
+      font-size: 14px; color: var(--text-muted);
+      font-weight: 600; margin-bottom: 20px; line-height: 1.6;
+    }
+    .world-panel-games {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 24px; list-style: none; padding: 0;
+    }
+    .world-panel-games li {
+      padding: 6px 14px;
+      background: var(--bg-soft); border-radius: 100px;
+      font-size: 13px; font-weight: 700; color: var(--text);
+    }
+    .world-panel-games li.free {
+      background: rgba(105,219,124,0.2); color: #2a7a3a;
+    }
+    .island-group { cursor: pointer; }
+    .island-group:focus { outline: 3px solid var(--accent); outline-offset: 4px; }
+
     /* ============ HERO — TWO COLUMN ============ */
     .hero-layout {
       display: grid;
@@ -884,6 +935,18 @@
           </g>
         </svg>
       </div>
+
+      <!-- World info panel (shown on island click) -->
+      <div class="world-panel" id="world-panel" role="region" aria-live="polite">
+        <button type="button" class="world-panel-close" id="wp-close" aria-label="Lukk">&times;</button>
+        <div class="world-panel-header">
+          <span class="world-panel-dot" id="wp-dot"></span>
+          <span class="world-panel-title" id="wp-title"></span>
+        </div>
+        <p class="world-panel-desc" id="wp-desc"></p>
+        <ul class="world-panel-games" id="wp-games"></ul>
+        <a id="wp-cta" href="https://play.google.com/store/apps/details?id=no.lunelo.app&utm_source=lunelo.no&utm_medium=world-panel&utm_campaign=worlds" target="_blank" rel="noopener noreferrer" class="cta-btn">Last ned og spill alle &rarr;</a>
+      </div>
     </div>
   </section>
 
@@ -1101,6 +1164,118 @@
         });
       });
     }
+
+    /* === Interactive island map === */
+    var worldData = {
+      'Bokstavland': {
+        color: '#4DABF7',
+        desc: 'L\u00e6r alle 29 norske bokstaver gjennom 8 varierte mini-spill med norsk tale og fargerike animasjoner.',
+        games: [
+          { name: 'Finn bokstaven', free: true },
+          { name: 'Bokstavlyd', free: true },
+          { name: 'Stor og liten', free: false },
+          { name: 'ABC-rekkef\u00f8lge', free: false },
+          { name: 'Skriv bokstaven', free: false },
+          { name: 'Bokstavbingo', free: false },
+          { name: 'Lydmatch', free: false },
+          { name: 'Bokstavhusene', free: false }
+        ]
+      },
+      'Tallriket': {
+        color: '#FFA94D',
+        desc: 'Telle, addere og sammenligne tall p\u00e5 en morsom og visuell m\u00e5te — fra 1 til 100.',
+        games: [
+          { name: 'Tell til 10', free: true },
+          { name: 'Mer eller mindre', free: false },
+          { name: 'Pluss og minus', free: false },
+          { name: 'Tallenes rekkef\u00f8lge', free: false },
+          { name: 'Tallbingo', free: false },
+          { name: 'Hvor mange?', free: false },
+          { name: 'Tallkamp', free: false },
+          { name: 'Tallenes hus', free: false }
+        ]
+      },
+      'Formskogen': {
+        color: '#69DB7C',
+        desc: 'Utforsk former, farger og m\u00f8nstre gjennom 8 lekne spill i den magiske skogen.',
+        games: [
+          { name: 'Finn formen', free: true },
+          { name: 'Fargelegg riktig', free: false },
+          { name: 'M\u00f8nster-match', free: false },
+          { name: 'Sorter former', free: false },
+          { name: 'Form-bingo', free: false },
+          { name: 'Store og sm\u00e5', free: false },
+          { name: 'Fargemix', free: false },
+          { name: 'Speilbilde', free: false }
+        ]
+      },
+      'Ordslottet': {
+        color: '#DA77F2',
+        desc: 'Bygg ord, les enkle setninger og l\u00e6r sammensetninger i det magiske ordslottet.',
+        games: [
+          { name: 'Finn ordet', free: false },
+          { name: 'Bygg et ord', free: false },
+          { name: 'Hva starter med?', free: false },
+          { name: 'Rime-lek', free: false },
+          { name: 'Ord-bingo', free: false },
+          { name: 'Les og match', free: false },
+          { name: 'Stav ordet', free: false },
+          { name: 'Ordenes slott', free: false }
+        ]
+      },
+      'Minne\u00f8ya': {
+        color: '#FFD43B',
+        desc: 'Tren hukommelse og konsentrasjon med morsomme par-spill og huskeoppgaver.',
+        games: [
+          { name: 'Kortmatch', free: true },
+          { name: 'Hva mangler?', free: false },
+          { name: 'Husk rekkef\u00f8lgen', free: false },
+          { name: 'Par-match', free: false },
+          { name: 'Huske-sekvens', free: false },
+          { name: 'Bilde-match', free: false },
+          { name: 'Minne-bingo', free: false },
+          { name: 'Fargespor', free: false }
+        ]
+      }
+    };
+
+    var worldPanel = document.getElementById('world-panel');
+    document.querySelectorAll('.island-group').forEach(function(group) {
+      group.setAttribute('tabindex', '0');
+      group.setAttribute('role', 'button');
+      var titleEl = group.querySelector('.island-title');
+      if (titleEl) group.setAttribute('aria-label', titleEl.textContent.trim() + ' — klikk for \u00e5 se spill');
+
+      function openPanel() {
+        var name = titleEl ? titleEl.textContent.trim() : '';
+        var data = worldData[name];
+        if (!data) return;
+        document.getElementById('wp-dot').style.background = data.color;
+        document.getElementById('wp-title').textContent = name;
+        document.getElementById('wp-desc').textContent = data.desc;
+        var list = document.getElementById('wp-games');
+        list.innerHTML = '';
+        data.games.forEach(function(g) {
+          var li = document.createElement('li');
+          li.textContent = g.free ? g.name + ' \u2605 Gratis' : g.name;
+          if (g.free) li.className = 'free';
+          list.appendChild(li);
+        });
+        worldPanel.classList.add('visible');
+        setTimeout(function() {
+          worldPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 50);
+      }
+
+      group.addEventListener('click', openPanel);
+      group.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(); }
+      });
+    });
+
+    document.getElementById('wp-close').addEventListener('click', function() {
+      worldPanel.classList.remove('visible');
+    });
 
     /* === Footer stars === */
     var starsEl = document.getElementById('stars');
