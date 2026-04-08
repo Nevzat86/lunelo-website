@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spill gratis — Lunelo</title>
+  <meta name="description" content="Spill 4 gratis mini-spill fra Lunelo direkte i nettleseren. Bokstaver, tall, former og hukommelse for barn 4–8 år.">
+  <link rel="icon" href="/branding/lunelo-icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FFA94D;
+      --orange-dark: #E8890A;
+      --blue: #4DABF7;
+      --green: #69DB7C;
+      --purple: #DA77F2;
+      --yellow: #FFD43B;
+      --bg: #FFF5E6;
+      --white: #FFFFFF;
+      --text: #2D3436;
+      --muted: #636E72;
+      --radius: 20px;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ---- HEADER ---- */
+    .top-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(255,245,230,0.92);
+      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 10;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    }
+    .top-bar-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+      font-weight: 900; font-size: 18px;
+    }
+    .top-bar-brand img { width: 36px; height: 36px; border-radius: 10px; }
+    .top-bar-back {
+      font-size: 14px; font-weight: 800;
+      color: var(--orange-dark); text-decoration: none;
+    }
+    .top-bar-back:hover { text-decoration: underline; }
+
+    /* ---- HERO ---- */
+    .play-hero {
+      text-align: center;
+      padding: 48px 24px 32px;
+    }
+    .play-hero h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 900; margin-bottom: 10px;
+    }
+    .play-hero h1 span { color: var(--orange); }
+    .play-hero p {
+      font-size: 16px; color: var(--muted);
+      font-weight: 700; margin-bottom: 8px;
+    }
+    .free-badge {
+      display: inline-block;
+      background: rgba(105,219,124,0.2);
+      color: #2a7a3a; font-size: 13px; font-weight: 800;
+      padding: 4px 14px; border-radius: 100px;
+    }
+
+    /* ---- GAME GRID ---- */
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .game-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s;
+      text-align: center;
+      border: 3px solid transparent;
+    }
+    .game-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+    }
+    .game-card.active { border-color: var(--orange); }
+    .game-card-icon {
+      font-size: 48px; margin-bottom: 12px;
+      display: block;
+    }
+    .game-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 4px; }
+    .game-card p { font-size: 13px; color: var(--muted); font-weight: 700; }
+    .game-card-world {
+      display: inline-block; margin-top: 10px;
+      font-size: 11px; font-weight: 800; padding: 3px 10px;
+      border-radius: 100px; letter-spacing: 1px;
+    }
+
+    /* ---- GAME CONTAINER ---- */
+    .game-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: none;
+    }
+    .game-wrapper.active { display: block; }
+
+    .game-box {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 36px 32px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    /* Progress */
+    .progress-row {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 24px;
+    }
+    .progress-dots { display: flex; gap: 6px; }
+    .dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: #E0E0E0; transition: background 0.3s;
+    }
+    .dot.done { background: var(--green); }
+    .dot.current { background: var(--orange); }
+    .score-label { font-size: 14px; font-weight: 800; color: var(--muted); }
+
+    /* Question area */
+    .question-area { margin-bottom: 28px; }
+    .question-label {
+      font-size: 15px; font-weight: 800;
+      color: var(--muted); margin-bottom: 10px;
+    }
+    .question-big {
+      font-size: clamp(60px, 15vw, 100px);
+      font-weight: 900; line-height: 1; color: var(--text);
+      margin: 8px 0;
+    }
+    .question-img-row {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 10px; margin: 12px 0;
+    }
+    .count-dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+
+    /* Answer buttons */
+    .answer-row {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .answer-btn {
+      min-width: 80px; padding: 16px 24px;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(20px, 5vw, 28px);
+      font-weight: 900; border: none; border-radius: 16px;
+      cursor: pointer; background: var(--bg);
+      color: var(--text);
+      box-shadow: 0 4px 0 rgba(0,0,0,0.12);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .answer-btn:hover { transform: translateY(-3px); box-shadow: 0 7px 0 rgba(0,0,0,0.1); }
+    .answer-btn:active { transform: translateY(1px); box-shadow: 0 2px 0 rgba(0,0,0,0.1); }
+    .answer-btn.correct { background: var(--green); color: #fff; animation: pop 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .answer-btn.wrong { background: #FF6B6B; color: #fff; animation: shake 0.4s ease; }
+
+    @keyframes pop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+
+    /* Feedback */
+    .feedback-msg {
+      font-size: 28px; font-weight: 900;
+      height: 40px; line-height: 40px;
+      margin: 16px 0 0;
+    }
+
+    /* Shape buttons */
+    .shape-row {
+      display: flex; gap: 16px; justify-content: center;
+      flex-wrap: wrap; margin: 8px 0;
+    }
+    .shape-btn {
+      width: 100px; height: 100px;
+      border: none; border-radius: 20px;
+      background: var(--bg); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .shape-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 0 rgba(0,0,0,0.08); }
+    .shape-btn.correct { background: var(--green); animation: pop 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .shape-btn.wrong { background: #FF6B6B; animation: shake 0.4s ease; }
+    .shape-btn svg { pointer-events: none; }
+
+    /* Memory game */
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 0 auto 16px;
+      max-width: 340px;
+    }
+    .mem-card {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      cursor: pointer;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+      transition: transform 0.3s, background 0.3s;
+      user-select: none;
+    }
+    .mem-card .front { display: none; }
+    .mem-card.flipped { background: var(--white); border: 3px solid var(--orange); }
+    .mem-card.flipped .front { display: block; }
+    .mem-card.flipped .back { display: none; }
+    .mem-card.matched { background: rgba(105,219,124,0.3); border: 3px solid var(--green); cursor: default; }
+    .mem-card .back { font-size: 24px; color: rgba(255,255,255,0.6); }
+    .mem-card:hover:not(.matched) { transform: scale(1.06); }
+
+    /* Completion screen */
+    .completion {
+      display: none; text-align: center; padding: 20px 0;
+    }
+    .completion.show { display: block; animation: fade-up 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+    @keyframes fade-up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .completion-stars { font-size: 48px; margin-bottom: 12px; }
+    .completion h2 { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+    .completion p { font-size: 15px; color: var(--muted); font-weight: 700; margin-bottom: 24px; }
+    .play-again-btn {
+      display: inline-block; padding: 12px 28px;
+      background: var(--bg); color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px; font-weight: 800;
+      border: none; border-radius: 100px; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-right: 10px; margin-bottom: 12px;
+      transition: transform 0.2s;
+    }
+    .play-again-btn:hover { transform: translateY(-2px); }
+    .download-cta {
+      display: inline-block; padding: 16px 32px;
+      background: var(--orange); color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px; font-weight: 900;
+      border-radius: 100px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(255,169,77,0.4);
+      margin-bottom: 12px;
+      transition: transform 0.2s;
+    }
+    .download-cta:hover { transform: translateY(-2px) scale(1.03); }
+
+    /* Back to menu */
+    .back-menu {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800;
+      color: var(--muted); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .back-menu:hover { color: var(--orange-dark); }
+
+    @media (max-width: 500px) {
+      .game-box { padding: 24px 18px; }
+      .answer-btn { padding: 14px 18px; min-width: 70px; }
+      .shape-btn { width: 80px; height: 80px; }
+      .memory-grid { grid-template-columns: repeat(4,1fr); gap: 8px; max-width: 280px; }
+      .mem-card { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-bar">
+    <a href="/" class="top-bar-brand">
+      <img src="/branding/lunelo-icon.svg" alt="Lunelo">
+      Lunelo
+    </a>
+    <a href="/" class="top-bar-back">← Tilbake til forsiden</a>
+  </nav>
+
+  <!-- ===== GAME MENU ===== -->
+  <div id="menu">
+    <div class="play-hero">
+      <h1>Spill <span>gratis</span> i nettleseren</h1>
+      <p>4 mini-spill — ingen nedlasting nødvendig</p>
+      <span class="free-badge">100% gratis</span>
+    </div>
+
+    <div class="game-grid">
+      <div class="game-card" onclick="startGame('letters')" role="button" tabindex="0">
+        <span class="game-card-icon">🔤</span>
+        <h3>Finn bokstaven</h3>
+        <p>Trykk på riktig bokstav</p>
+        <span class="game-card-world" style="background:rgba(77,171,247,0.15);color:#1971c2;">Bokstavland</span>
+      </div>
+      <div class="game-card" onclick="startGame('numbers')" role="button" tabindex="0">
+        <span class="game-card-icon">🔢</span>
+        <h3>Tell til 10</h3>
+        <p>Tell og velg riktig tall</p>
+        <span class="game-card-world" style="background:rgba(255,169,77,0.15);color:#c37d10;">Tallriket</span>
+      </div>
+      <div class="game-card" onclick="startGame('shapes')" role="button" tabindex="0">
+        <span class="game-card-icon">🔷</span>
+        <h3>Finn formen</h3>
+        <p>Match riktig form</p>
+        <span class="game-card-world" style="background:rgba(105,219,124,0.15);color:#2f9e44;">Formskogen</span>
+      </div>
+      <div class="game-card" onclick="startGame('memory')" role="button" tabindex="0">
+        <span class="game-card-icon">🃏</span>
+        <h3>Kortmatch</h3>
+        <p>Finn alle par — tren hukommelsen</p>
+        <span class="game-card-world" style="background:rgba(255,212,59,0.2);color:#9c7800;">Minneøya</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GAME: LETTERS ===== -->
+  <div class="game-wrapper" id="game-letters">
+    <button class="back-menu" onclick="backToMenu()">← Velg et annet spill</button>
+    <div class="game-box" id="letters-box">
+      <div class="progress-row">
+        <div class="progress-dots" id="letters-dots"></div>
+        <span class="score-label" id="letters-score">0 / 5</span>
+      </div>
+      <div class="question-area">
+        <div class="question-label">Trykk på bokstaven:</div>
+        <div class="question-big" id="letters-target"></div>
+      </div>
+      <div class="answer-row" id="letters-answers"></div>
+      <div class="feedback-msg" id="letters-feedback"></div>
+    </div>
+    <div class="completion" id="letters-done">
+      <div class="completion-stars">⭐⭐⭐</div>
+      <h2>Fantastisk!</h2>
+      <p>Du fant alle bokstavene! I appen er det 8 ulike bokstavspill.</p>
+      <button class="play-again-btn" onclick="startGame('letters')">Spill igjen</button>
+      <a class="download-cta" href="https://play.google.com/store/apps/details?id=no.lunelo.app&utm_source=lunelo.no&utm_medium=play-page&utm_campaign=letters" target="_blank" rel="noopener noreferrer">
+        Last ned alle 42 spill gratis →
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== GAME: NUMBERS ===== -->
+  <div class="game-wrapper" id="game-numbers">
+    <button class="back-menu" onclick="backToMenu()">← Velg et annet spill</button>
+    <div class="game-box" id="numbers-box">
+      <div class="progress-row">
+        <div class="progress-dots" id="numbers-dots"></div>
+        <span class="score-label" id="numbers-score">0 / 5</span>
+      </div>
+      <div class="question-area">
+        <div class="question-label">Hvor mange er det?</div>
+        <div class="question-img-row" id="numbers-dots-row"></div>
+      </div>
+      <div class="answer-row" id="numbers-answers"></div>
+      <div class="feedback-msg" id="numbers-feedback"></div>
+    </div>
+    <div class="completion" id="numbers-done">
+      <div class="completion-stars">⭐⭐⭐</div>
+      <h2>Supert telt!</h2>
+      <p>Du klarte alle tallene! I appen kan du telle helt til 100.</p>
+      <button class="play-again-btn" onclick="startGame('numbers')">Spill igjen</button>
+      <a class="download-cta" href="https://play.google.com/store/apps/details?id=no.lunelo.app&utm_source=lunelo.no&utm_medium=play-page&utm_campaign=numbers" target="_blank" rel="noopener noreferrer">
+        Last ned alle 42 spill gratis →
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== GAME: SHAPES ===== -->
+  <div class="game-wrapper" id="game-shapes">
+    <button class="back-menu" onclick="backToMenu()">← Velg et annet spill</button>
+    <div class="game-box" id="shapes-box">
+      <div class="progress-row">
+        <div class="progress-dots" id="shapes-dots"></div>
+        <span class="score-label" id="shapes-score">0 / 5</span>
+      </div>
+      <div class="question-area">
+        <div class="question-label">Finn:</div>
+        <div class="question-big" id="shapes-target" style="font-size:clamp(32px,6vw,52px);"></div>
+      </div>
+      <div class="shape-row" id="shapes-answers"></div>
+      <div class="feedback-msg" id="shapes-feedback"></div>
+    </div>
+    <div class="completion" id="shapes-done">
+      <div class="completion-stars">⭐⭐⭐</div>
+      <h2>Flott jobbet!</h2>
+      <p>Du fant alle formene! I appen er det 8 formspill med farger og mønstre.</p>
+      <button class="play-again-btn" onclick="startGame('shapes')">Spill igjen</button>
+      <a class="download-cta" href="https://play.google.com/store/apps/details?id=no.lunelo.app&utm_source=lunelo.no&utm_medium=play-page&utm_campaign=shapes" target="_blank" rel="noopener noreferrer">
+        Last ned alle 42 spill gratis →
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== GAME: MEMORY ===== -->
+  <div class="game-wrapper" id="game-memory">
+    <button class="back-menu" onclick="backToMenu()">← Velg et annet spill</button>
+    <div class="game-box">
+      <div class="progress-row">
+        <span class="score-label">Par funnet: <span id="mem-pairs">0</span> / 8</span>
+        <span class="score-label">Trekk: <span id="mem-moves">0</span></span>
+      </div>
+      <div class="memory-grid" id="memory-grid"></div>
+      <div class="feedback-msg" id="memory-feedback"></div>
+    </div>
+    <div class="completion" id="memory-done">
+      <div class="completion-stars" id="mem-stars"></div>
+      <h2 id="mem-done-title">Alle par funnet!</h2>
+      <p id="mem-done-msg"></p>
+      <button class="play-again-btn" onclick="startGame('memory')">Spill igjen</button>
+      <a class="download-cta" href="https://play.google.com/store/apps/details?id=no.lunelo.app&utm_source=lunelo.no&utm_medium=play-page&utm_campaign=memory" target="_blank" rel="noopener noreferrer">
+        Last ned alle 42 spill gratis →
+      </a>
+    </div>
+  </div>
+
+  <script>
+  /* ========== UTILITIES ========== */
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+  function pick(arr, n) { return shuffle(arr).slice(0, n); }
+  function rand(a, b) { return Math.floor(Math.random() * (b - a + 1)) + a; }
+
+  function backToMenu() {
+    document.getElementById('menu').style.display = '';
+    document.querySelectorAll('.game-wrapper').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function startGame(id) {
+    document.getElementById('menu').style.display = 'none';
+    document.querySelectorAll('.game-wrapper').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    var wrapper = document.getElementById('game-' + id);
+    wrapper.classList.add('active');
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // hide completion, show game box
+    document.getElementById(id + '-done') && (document.getElementById(id + '-done').classList.remove('show'));
+    var box = document.getElementById(id + '-box') || document.querySelector('#game-' + id + ' .game-box');
+    if (box) box.style.display = '';
+    // init game
+    if (id === 'letters') initLetters();
+    else if (id === 'numbers') initNumbers();
+    else if (id === 'shapes') initShapes();
+    else if (id === 'memory') initMemory();
+  }
+
+  function showCompletion(id, boxId) {
+    var box = document.getElementById(boxId) || document.querySelector('#game-' + id + ' .game-box');
+    if (box) box.style.display = 'none';
+    var done = document.getElementById(id + '-done');
+    if (done) { done.classList.add('show'); done.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }
+
+  function buildDots(containerId, total, current) {
+    var el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = '';
+    for (var i = 0; i < total; i++) {
+      var d = document.createElement('span');
+      d.className = 'dot' + (i < current ? ' done' : i === current ? ' current' : '');
+      el.appendChild(d);
+    }
+  }
+
+  /* ========== GAME 1: LETTERS ========== */
+  var LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'.split('');
+  var letState = {};
+
+  function initLetters() {
+    letState = { round: 0, score: 0, total: 5 };
+    nextLetter();
+  }
+
+  function nextLetter() {
+    if (letState.round >= letState.total) {
+      showCompletion('letters', 'letters-box'); return;
+    }
+    buildDots('letters-dots', letState.total, letState.round);
+    document.getElementById('letters-score').textContent = letState.score + ' / ' + letState.total;
+    document.getElementById('letters-feedback').textContent = '';
+
+    var target = LETTERS[rand(0, LETTERS.length - 1)];
+    letState.target = target;
+    document.getElementById('letters-target').textContent = target;
+
+    // 3 options: target + 2 random different
+    var wrong = pick(LETTERS.filter(function(l) { return l !== target; }), 2);
+    var options = shuffle([target].concat(wrong));
+
+    var row = document.getElementById('letters-answers');
+    row.innerHTML = '';
+    options.forEach(function(letter) {
+      var btn = document.createElement('button');
+      btn.className = 'answer-btn';
+      btn.textContent = letter;
+      btn.onclick = function() { checkLetter(letter, btn, row); };
+      row.appendChild(btn);
+    });
+  }
+
+  function checkLetter(chosen, btn, row) {
+    var allBtns = row.querySelectorAll('.answer-btn');
+    allBtns.forEach(function(b) { b.onclick = null; });
+    var fb = document.getElementById('letters-feedback');
+    if (chosen === letState.target) {
+      btn.classList.add('correct');
+      fb.textContent = '⭐ Riktig!';
+      letState.score++;
+    } else {
+      btn.classList.add('wrong');
+      allBtns.forEach(function(b) { if (b.textContent === letState.target) b.classList.add('correct'); });
+      fb.textContent = '🤔 Prøv igjen neste gang!';
+    }
+    letState.round++;
+    setTimeout(nextLetter, 900);
+  }
+
+  /* ========== GAME 2: NUMBERS ========== */
+  var EMOJIS = ['🍎','🐶','⭐','🌸','🦋','🐠','🍦','🎈','🐸','🍓'];
+  var numState = {};
+
+  function initNumbers() {
+    numState = { round: 0, score: 0, total: 5 };
+    nextNumber();
+  }
+
+  function nextNumber() {
+    if (numState.round >= numState.total) {
+      showCompletion('numbers', 'numbers-box'); return;
+    }
+    buildDots('numbers-dots', numState.total, numState.round);
+    document.getElementById('numbers-score').textContent = numState.score + ' / ' + numState.total;
+    document.getElementById('numbers-feedback').textContent = '';
+
+    var target = rand(1, 9);
+    numState.target = target;
+    var emoji = EMOJIS[rand(0, EMOJIS.length - 1)];
+
+    var row = document.getElementById('numbers-dots-row');
+    row.innerHTML = '';
+    for (var i = 0; i < target; i++) {
+      var d = document.createElement('span');
+      d.className = 'count-dot';
+      d.textContent = emoji;
+      row.appendChild(d);
+    }
+
+    // 3 answer options
+    var wrong1, wrong2;
+    do { wrong1 = rand(1, 10); } while (wrong1 === target);
+    do { wrong2 = rand(1, 10); } while (wrong2 === target || wrong2 === wrong1);
+    var options = shuffle([target, wrong1, wrong2]);
+
+    var ansRow = document.getElementById('numbers-answers');
+    ansRow.innerHTML = '';
+    options.forEach(function(n) {
+      var btn = document.createElement('button');
+      btn.className = 'answer-btn';
+      btn.textContent = n;
+      btn.onclick = function() { checkNumber(n, btn, ansRow); };
+      ansRow.appendChild(btn);
+    });
+  }
+
+  function checkNumber(chosen, btn, row) {
+    row.querySelectorAll('.answer-btn').forEach(function(b) { b.onclick = null; });
+    var fb = document.getElementById('numbers-feedback');
+    if (chosen === numState.target) {
+      btn.classList.add('correct');
+      fb.textContent = '⭐ Riktig! Det var ' + numState.target + '!';
+      numState.score++;
+    } else {
+      btn.classList.add('wrong');
+      row.querySelectorAll('.answer-btn').forEach(function(b) {
+        if (parseInt(b.textContent) === numState.target) b.classList.add('correct');
+      });
+      fb.textContent = '🤔 Det var ' + numState.target + '!';
+    }
+    numState.round++;
+    setTimeout(nextNumber, 1000);
+  }
+
+  /* ========== GAME 3: SHAPES ========== */
+  var SHAPES = [
+    {
+      name: 'Sirkel', color: '#4DABF7',
+      svg: '<svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="currentColor"/></svg>'
+    },
+    {
+      name: 'Firkant', color: '#FFA94D',
+      svg: '<svg width="60" height="60" viewBox="0 0 60 60"><rect x="6" y="6" width="48" height="48" rx="4" fill="currentColor"/></svg>'
+    },
+    {
+      name: 'Trekant', color: '#69DB7C',
+      svg: '<svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,4 56,56 4,56" fill="currentColor"/></svg>'
+    },
+    {
+      name: 'Stjerne', color: '#FFD43B',
+      svg: '<svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,4 36,22 56,22 40,34 46,54 30,42 14,54 20,34 4,22 24,22" fill="currentColor"/></svg>'
+    },
+    {
+      name: 'Hjerte', color: '#FF6B6B',
+      svg: '<svg width="60" height="60" viewBox="0 0 60 60"><path d="M30,50 C30,50 6,34 6,20 C6,12 12,6 20,6 C25,6 29,9 30,12 C31,9 35,6 40,6 C48,6 54,12 54,20 C54,34 30,50 30,50Z" fill="currentColor"/></svg>'
+    },
+    {
+      name: 'Rombe', color: '#DA77F2',
+      svg: '<svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,4 56,30 30,56 4,30" fill="currentColor"/></svg>'
+    }
+  ];
+  var shpState = {};
+
+  function initShapes() {
+    shpState = { round: 0, score: 0, total: 5 };
+    nextShape();
+  }
+
+  function nextShape() {
+    if (shpState.round >= shpState.total) {
+      showCompletion('shapes', 'shapes-box'); return;
+    }
+    buildDots('shapes-dots', shpState.total, shpState.round);
+    document.getElementById('shapes-score').textContent = shpState.score + ' / ' + shpState.total;
+    document.getElementById('shapes-feedback').textContent = '';
+
+    var target = SHAPES[rand(0, SHAPES.length - 1)];
+    shpState.target = target.name;
+    document.getElementById('shapes-target').textContent = target.name;
+
+    var wrong = pick(SHAPES.filter(function(s) { return s.name !== target.name; }), 2);
+    var options = shuffle([target].concat(wrong));
+
+    var row = document.getElementById('shapes-answers');
+    row.innerHTML = '';
+    options.forEach(function(shape) {
+      var btn = document.createElement('button');
+      btn.className = 'shape-btn';
+      btn.innerHTML = '<span style="color:' + shape.color + '">' + shape.svg + '</span>';
+      btn.setAttribute('aria-label', shape.name);
+      btn.onclick = function() { checkShape(shape.name, btn, row); };
+      row.appendChild(btn);
+    });
+  }
+
+  function checkShape(chosen, btn, row) {
+    row.querySelectorAll('.shape-btn').forEach(function(b) { b.onclick = null; });
+    var fb = document.getElementById('shapes-feedback');
+    if (chosen === shpState.target) {
+      btn.classList.add('correct');
+      fb.textContent = '⭐ Riktig!';
+      shpState.score++;
+    } else {
+      btn.classList.add('wrong');
+      fb.textContent = '🤔 Det var ' + shpState.target + '!';
+    }
+    shpState.round++;
+    setTimeout(nextShape, 900);
+  }
+
+  /* ========== GAME 4: MEMORY ========== */
+  var MEM_EMOJIS = ['🦁','🐸','🦋','🍎','⭐','🌈','🐬','🎈'];
+  var memState = {};
+
+  function initMemory() {
+    var cards = shuffle(MEM_EMOJIS.concat(MEM_EMOJIS));
+    memState = {
+      cards: cards, flipped: [], matched: 0, moves: 0,
+      locked: false
+    };
+    document.getElementById('mem-pairs').textContent = '0';
+    document.getElementById('mem-moves').textContent = '0';
+    document.getElementById('memory-feedback').textContent = '';
+
+    var box = document.querySelector('#game-memory .game-box');
+    if (box) box.style.display = '';
+    document.getElementById('memory-done').classList.remove('show');
+
+    var grid = document.getElementById('memory-grid');
+    grid.innerHTML = '';
+    cards.forEach(function(emoji, idx) {
+      var card = document.createElement('div');
+      card.className = 'mem-card';
+      card.innerHTML = '<span class="back">?</span><span class="front">' + emoji + '</span>';
+      card.dataset.idx = idx;
+      card.dataset.emoji = emoji;
+      card.onclick = function() { flipCard(card); };
+      grid.appendChild(card);
+    });
+  }
+
+  function flipCard(card) {
+    if (memState.locked) return;
+    if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    card.classList.add('flipped');
+    memState.flipped.push(card);
+
+    if (memState.flipped.length === 2) {
+      memState.locked = true;
+      memState.moves++;
+      document.getElementById('mem-moves').textContent = memState.moves;
+      var a = memState.flipped[0], b = memState.flipped[1];
+      if (a.dataset.emoji === b.dataset.emoji) {
+        setTimeout(function() {
+          a.classList.add('matched'); b.classList.add('matched');
+          a.classList.remove('flipped'); b.classList.remove('flipped');
+          memState.matched++;
+          document.getElementById('mem-pairs').textContent = memState.matched;
+          memState.flipped = []; memState.locked = false;
+          if (memState.matched === 8) {
+            setTimeout(memDone, 400);
+          }
+        }, 400);
+      } else {
+        setTimeout(function() {
+          a.classList.remove('flipped'); b.classList.remove('flipped');
+          memState.flipped = []; memState.locked = false;
+        }, 800);
+      }
+    }
+  }
+
+  function memDone() {
+    var moves = memState.moves;
+    var stars = moves <= 10 ? '⭐⭐⭐' : moves <= 14 ? '⭐⭐' : '⭐';
+    var msg = moves <= 10 ? 'Utrolig godt hukommelse! ' + moves + ' trekk.' : moves <= 14 ? 'Bra jobbet! ' + moves + ' trekk.' : 'Godt forsøk! ' + moves + ' trekk.';
+    document.getElementById('mem-stars').textContent = stars;
+    document.getElementById('mem-done-title').textContent = 'Alle par funnet!';
+    document.getElementById('mem-done-msg').textContent = msg + ' I appen er det enda flere par å matche.';
+    showCompletion('memory', null);
+  }
+
+  /* keyboard support for game cards */
+  document.querySelectorAll('.game-card').forEach(function(card) {
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+  </script>
+</body>
+</html>
