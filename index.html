@@ -520,10 +520,10 @@
   <!-- ======== STICKY HEADER ======== -->
   <header class="site-header">
     <a href="/" class="header-brand">
-      <img src="branding/png-exports/lunelo-icon-512x512.png" alt="Lunelo" class="header-logo">
+      <img src="branding/lunelo-icon.svg" alt="Lunelo" class="header-logo">
       <span class="header-name">Lunelo</span>
     </a>
-    <a href="#signup" class="header-cta">Sikre tilbudet</a>
+    <a href="#signup" class="header-cta">Meld deg på</a>
   </header>
 
   <!-- ======== HERO ======== -->
@@ -543,23 +543,29 @@
     </div>
 
     <div class="hero-content">
-      <img src="branding/png-exports/lunelo-icon-512x512.png" alt="Lunelo" class="hero-icon">
+      <img src="branding/lunelo-icon.svg" alt="Lunelo" class="hero-icon">
       <h1>Skjermtid med god <span>samvittighet</span></h1>
       <p class="hero-tagline">Trygg l&aelig;ring gjennom lek</p>
       <p class="hero-sub">
         Utforsk 5 magiske verdener og 42 l&aelig;rerike minispill &mdash; 100&percnt; reklamefritt, skapt i Oslo for barn 4&ndash;8 &aring;r.
       </p>
       <div class="hero-badges">
-        <span class="pill accent">Kommer snart!</span>
+        <span class="pill accent">Nå på Android!</span>
         <span class="pill">4&ndash;8 &aring;r</span>
         <span class="pill">7 spr&aring;k</span>
         <span class="pill">Android</span>
       </div>
-      <form id="signup" class="email-form-wrapper" action="https://formspree.io/contact@lunelo.no" method="POST">
-        <input type="email" name="email" class="email-input" placeholder="Din beste e-postadresse" required>
-        <button type="submit" class="cta-btn">Sikre lanseringstilbudet</button>
+      <form id="signup" class="email-form-wrapper" action="https://formsubmit.co/ajax/contact@lunelo.no" method="POST">
+        <input type="email" name="email" class="email-input" placeholder="Din e-postadresse" required>
+        <input type="hidden" name="_subject" value="Ny påmelding fra lunelo.no">
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit" class="cta-btn">Bli varslet om iOS-lansering</button>
       </form>
-      <p style="font-size:13px;color:var(--text-light);margin-top:10px;font-weight:600;">F&aring; beskjed ved lansering + 59 kr livstidstilgang (normalpris 149 kr). Kun &eacute;n e-post.</p>
+      <p style="font-size:13px;color:var(--text-light);margin-top:10px;font-weight:600;">Meld deg på iOS-ventelisten &mdash; vi varsler deg n&aring;r Lunelo er p&aring; App Store.</p>
+      <a href="https://play.google.com/store/apps/details?id=no.lunelo.app" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:14px 28px;background:#2D3436;color:#fff;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;border-radius:100px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 16px rgba(0,0,0,0.18);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.22)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.18)'">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.18 23.76a2 2 0 0 0 2.73-.74L12 13.11l-6.09-3.5L3 20.27a2 2 0 0 0 .18 3.49ZM20.82 9.88 17.5 8l-5.5 3.18 5.5 3.18 3.32-1.88a2 2 0 0 0 0-2.6ZM3 3.73l2.91 9.88L12 10.11 5.91 6.61A2 2 0 0 0 3 3.73ZM14.5 8l3.32-1.92a2 2 0 0 0 0-3.48L14.5 0.68 12 2.11l-5.5 3.17L12 8.54 14.5 8Z" fill="white"/></svg>
+        Last ned p&aring; Google Play
+      </a>
     </div>
   </section>
 
@@ -890,11 +896,11 @@
         btn.disabled = true;
         fetch(signupForm.action, {
           method: 'POST',
-          body: new FormData(signupForm),
-          headers: { 'Accept': 'application/json' }
-        }).then(function(res) {
-          if (res.ok) {
-            signupForm.innerHTML = '<p style="font-size:18px;font-weight:800;color:var(--green);">&#x2728; Jippi! Tilbudet er p\u00e5 vei til innboksen din!</p>';
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: signupForm.querySelector('input[type=email]').value, _subject: 'Ny p\u00e5melding fra lunelo.no' })
+        }).then(function(res) { return res.json(); }).then(function(data) {
+          if (data.success === 'true' || data.success === true) {
+            signupForm.innerHTML = '<p style="font-size:18px;font-weight:800;color:var(--green);">&#x2728; Du er p\u00e5meldt! Vi gir deg beskjed n\u00e5r Lunelo er p\u00e5 iOS.</p>';
           } else {
             btn.textContent = origText;
             btn.disabled = false;
