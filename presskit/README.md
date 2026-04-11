@@ -26,7 +26,7 @@ Lunelo er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill fo
 | **Plattform** | Android (iOS kommer) |
 | **Sjanger** | Pedagogisk / Barnespill |
 | **Aldersgruppe** | 4-8 ar |
-| **Pris** | Gratis (6 spill) + Premium (alle 42, 59 kr livstid) |
+| **Pris** | Gratis (6 spill) + Premium (alle 54, 59 kr livstid) |
 | **Sprak** | Norsk, Engelsk, Tysk, Svensk, Dansk, Spansk, Albansk |
 | **Status** | I Google Play review |
 
@@ -34,7 +34,7 @@ Lunelo er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill fo
 42 morsomme laeringsspill fordelt pa 5 fargerike verdener. Barn laerer bokstaver, tall, former, ord og hukommelse — alt gjennom lek.
 
 #### Nokkelpoeng
-- **42 mini-spill** i 5 tematiske verdener
+- **54 mini-spill** i 5 tematiske verdener
 - **6 spill er helt gratis** — ingen kredittkort nodvendig
 - **Ingen reklame, ingen sporing, ingen sosiale medier**
 - **COPPA og GDPR-kompatibel** med foreldreport
@@ -92,7 +92,7 @@ Vi svarer vanligvis innen 24 timer.
 - Lunelo er et enpersons indie-studio fra Oslo, Norge
 - Lunelo: Laer gjennom lek er studioets forste utgivelse
 - Spillet er utviklet med React Native og kjorer pa Android (iOS kommer)
-- Alle 42 spill er testet med 50 automatiserte testsuiter
+- Alle 54 spill er testet med 50 automatiserte testsuiter
 - Spillet er designet etter prinsippet "ingen straff" — feil svar gir oppmuntring, ikke negativ feedback
 - Appen samler ikke inn persondata fra barn
 - 7 sprak stottet: norsk, engelsk, tysk, svensk, dansk, spansk og albansk
